@@ -16,10 +16,11 @@ class GameApi {
     String targetType = 'player',
   }) async {
     final client = HttpClient();
+    client.connectionTimeout = const Duration(seconds: 4);
 
     try {
       final uri = Uri.parse('$_defaultBaseUrl/questions/generate');
-      final request = await client.postUrl(uri);
+      final request = await client.postUrl(uri).timeout(const Duration(seconds: 4));
       request.headers.contentType = ContentType.json;
       request.write(
         jsonEncode({
@@ -28,12 +29,14 @@ class GameApi {
         }),
       );
 
-      final response = await request.close();
+      final response = await request.close().timeout(const Duration(seconds: 5));
       if (response.statusCode < 200 || response.statusCode >= 300) {
         throw HttpException('Question API failed: ${response.statusCode}', uri: uri);
       }
 
-      final body = await response.transform(utf8.decoder).join();
+      final body = await response.transform(utf8.decoder).join().timeout(
+            const Duration(seconds: 5),
+          );
       final decoded = jsonDecode(body);
       if (decoded is! List) {
         throw const FormatException('Invalid question payload format');

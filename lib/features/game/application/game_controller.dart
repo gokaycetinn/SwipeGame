@@ -6,7 +6,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../data/game_api.dart';
 import '../data/sample_cards.dart';
-import '../domain/quiz_card.dart';
 import 'game_state.dart';
 
 final gameControllerProvider =
@@ -17,7 +16,7 @@ final gameControllerProvider =
 class GameController extends StateNotifier<GameState> {
   GameController() : super(GameState.initial());
 
-  static const int _roundDurationMs = 10000;
+  static const int _roundDurationMs = 60000;
   static const int _roundCardCount = 14;
 
   Timer? _ticker;
@@ -34,7 +33,8 @@ class GameController extends StateNotifier<GameState> {
     _penaltyMs = 0;
     _inputLocked = false;
 
-    final deck = await _loadRoundDeck();
+    final random = Random();
+    final deck = [...sampleCards]..shuffle(random);
     final firstRule = deck.isEmpty ? '' : deck.first.ruleText;
 
     state = state.copyWith(
@@ -54,21 +54,25 @@ class GameController extends StateNotifier<GameState> {
     );
 
     _ticker = Timer.periodic(const Duration(milliseconds: 16), (_) => _tick());
+
+    unawaited(_hydrateRoundDeckFromApi());
   }
 
-  Future<List<QuizCard>> _loadRoundDeck() async {
+  Future<void> _hydrateRoundDeckFromApi() async {
     try {
       final cards = await _api.fetchQuestions(count: _roundCardCount, targetType: 'player');
-      if (cards.isNotEmpty) {
-        return cards;
+      if (!state.isRunning || cards.isEmpty) {
+        return;
       }
-    } catch (_) {
-      // Network or backend errors fall back to local sample data.
-    }
 
-    final random = Random();
-    final fallback = [...sampleCards]..shuffle(random);
-    return fallback;
+      state = state.copyWith(
+        deck: cards,
+        currentIndex: 0,
+        currentRule: cards.first.ruleText,
+      );
+    } catch (_) {
+      // Network/backend problems keep local fallback deck active.
+    }
   }
 
   void submitAnswer({required bool matchesRule}) {

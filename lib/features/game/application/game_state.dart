@@ -47,7 +47,7 @@ class GameState {
         bestStreak: 0,
         totalSwipes: 0,
         correctSwipes: 0,
-        remainingMs: 10000,
+        remainingMs: 60000,
         isRunning: false,
         isFinished: false,
         lastResult: null,
