@@ -30,53 +30,19 @@ class GameScreen extends ConsumerWidget {
     final state = ref.watch(gameControllerProvider);
     final controller = ref.read(gameControllerProvider.notifier);
     final currentCard = state.currentCard;
-    final entityLabel = currentCard == null
-      ? 'PLAYER'
-      : currentCard.id.startsWith('club_')
-        ? 'CLUB'
-        : currentCard.id.startsWith('stadium_')
-          ? 'STADIUM'
-          : 'PLAYER';
 
     final timerSeconds = state.remainingMs / 1000.0;
     final dangerMode = timerSeconds <= 3;
 
     return FutBackground(
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(18, 10, 18, 14),
+        padding: const EdgeInsets.fromLTRB(18, 10, 18, 0),
         child: Column(
           children: [
             _GameTopBar(
               onPause: () => _openPauseMenu(context, ref, controller),
             ),
-            const SizedBox(height: 16),
-            Row(
-              children: [
-                Expanded(
-                  child: Text(
-                    'MOD: ${state.activeModeLabel.toUpperCase()} • ZORLUK: ${state.currentDifficulty.toUpperCase()}',
-                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                          color: const Color(0xFFC7D6E8),
-                          fontSize: 12,
-                          letterSpacing: 1.0,
-                          fontWeight: FontWeight.w700,
-                        ),
-                  ),
-                ),
-                GlassCard(
-                  borderColor: AppColors.neonGreen.withValues(alpha: 0.55),
-                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                  child: Text(
-                    'SERI ${state.streak}',
-                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                          fontWeight: FontWeight.w800,
-                          letterSpacing: 1.1,
-                        ),
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 8),
             Text(
               timerSeconds.toStringAsFixed(2),
               style: Theme.of(context).textTheme.displayLarge?.copyWith(
@@ -87,51 +53,69 @@ class GameScreen extends ConsumerWidget {
                 .scale(begin: const Offset(1, 1), end: const Offset(1.08, 1.08), duration: 340.ms)
                 .then()
                 .scale(begin: const Offset(1.08, 1.08), end: const Offset(1, 1), duration: 340.ms),
-            if (state.isPaused) ...[
-              const SizedBox(height: 6),
-              Text(
-                'DURAKLATILDI',
-                style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                      color: AppColors.amber,
-                      letterSpacing: 1.8,
-                      fontWeight: FontWeight.w700,
-                    ),
+            const SizedBox(height: 6),
+            SizedBox(
+              height: 24,
+              child: Center(
+                child: AnimatedOpacity(
+                  duration: const Duration(milliseconds: 120),
+                  opacity: state.isPaused ? 1 : 0,
+                  child: Text(
+                    'DURAKLATILDI',
+                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                          color: AppColors.amber,
+                          letterSpacing: 1.8,
+                          fontWeight: FontWeight.w700,
+                        ),
+                  ),
+                ),
               ),
-            ],
-            const SizedBox(height: 10),
-            _RuleBar(text: state.currentRule),
-            const SizedBox(height: 10),
-            Expanded(
-              child: currentCard == null
-                  ? const SizedBox.shrink()
-                  : _SwipeCard(
-                      key: ValueKey('${currentCard.id}-${state.totalSwipes}'),
-                      name: currentCard.name,
-                      subtitle: currentCard.subtitle,
-                      entityLabel: entityLabel,
-                      imageUrl: currentCard.imageUrl,
-                      onSwipeLeft: () => controller.submitAnswer(matchesRule: false),
-                      onSwipeRight: () => controller.submitAnswer(matchesRule: true),
-                    ),
-            ),
-            const SizedBox(height: 16),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                _RoundActionButton(
-                  icon: Icons.close_rounded,
-                  color: const Color(0xFFFFA8B7),
-                  onTap: () => controller.submitAnswer(matchesRule: false),
-                ),
-                const SizedBox(width: 26),
-                _RoundActionButton(
-                  icon: Icons.check_rounded,
-                  color: AppColors.neonGreen,
-                  onTap: () => controller.submitAnswer(matchesRule: true),
-                ),
-              ],
             ),
             const SizedBox(height: 8),
+            _RuleBar(text: state.currentRule),
+            const SizedBox(height: 6),
+            Expanded(
+              child: Stack(
+                alignment: Alignment.bottomCenter,
+                clipBehavior: Clip.none,
+                children: [
+                  Positioned(
+                    left: -20,
+                    right: -20,
+                    top: 0,
+                    bottom: -MediaQuery.paddingOf(context).bottom,
+                    child: currentCard == null
+                        ? const SizedBox.shrink()
+                        : _SwipeCard(
+                            key: ValueKey('${currentCard.id}-${state.totalSwipes}'),
+                            name: currentCard.name,
+                            imageUrl: currentCard.imageUrl,
+                            onSwipeLeft: () => controller.submitAnswer(matchesRule: false),
+                            onSwipeRight: () => controller.submitAnswer(matchesRule: true),
+                          ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(bottom: MediaQuery.paddingOf(context).bottom + 8),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        _RoundActionButton(
+                          icon: Icons.close_rounded,
+                          color: const Color(0xFFFFA8B7),
+                          onTap: () => controller.submitAnswer(matchesRule: false),
+                        ),
+                        const SizedBox(width: 26),
+                        _RoundActionButton(
+                          icon: Icons.check_rounded,
+                          color: AppColors.neonGreen,
+                          onTap: () => controller.submitAnswer(matchesRule: true),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
@@ -145,32 +129,45 @@ class GameScreen extends ConsumerWidget {
   ) async {
     controller.pauseRound();
 
-    await showDialog<void>(
+    await showGeneralDialog<void>(
       context: context,
       barrierDismissible: false,
-      builder: (context) {
-        return AlertDialog(
-          backgroundColor: const Color(0xFF0F1A28),
-          title: const Text('Oyun Duraklatildi'),
-          content: const Text('Devam etmek veya ana menuye donmek icin secim yap.'),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-                controller.resumeRound();
-              },
-              child: const Text('Devam Et'),
+      barrierLabel: 'PauseMenu',
+      barrierColor: Colors.black54,
+      transitionDuration: const Duration(milliseconds: 150),
+      pageBuilder: (context, animation, secondaryAnimation) {
+        return SafeArea(
+          child: Center(
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 360),
+              child: AlertDialog(
+                backgroundColor: const Color(0xFF0F1A28),
+                title: const Text('Oyun Duraklatildi'),
+                content: const Text('Devam etmek veya ana menuye donmek icin secim yap.'),
+                actions: [
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                      controller.resumeRound();
+                    },
+                    child: const Text('Devam Et'),
+                  ),
+                  FilledButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                      controller.exitToHome();
+                      onExitToHome();
+                    },
+                    child: const Text('Ana Menu'),
+                  ),
+                ],
+              ),
             ),
-            FilledButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-                controller.exitToHome();
-                onExitToHome();
-              },
-              child: const Text('Ana Menu'),
-            ),
-          ],
+          ),
         );
+      },
+      transitionBuilder: (context, animation, secondaryAnimation, child) {
+        return FadeTransition(opacity: animation, child: child);
       },
     );
 
@@ -208,16 +205,12 @@ class _SwipeCard extends StatelessWidget {
   const _SwipeCard({
     super.key,
     required this.name,
-    required this.subtitle,
-    required this.entityLabel,
     required this.imageUrl,
     required this.onSwipeLeft,
     required this.onSwipeRight,
   });
 
   final String name;
-  final String subtitle;
-  final String entityLabel;
   final String imageUrl;
   final VoidCallback onSwipeLeft;
   final VoidCallback onSwipeRight;
@@ -234,9 +227,8 @@ class _SwipeCard extends StatelessWidget {
         }
         onSwipeLeft();
       },
-      background: _SwipeBg(color: AppColors.neonGreen, icon: Icons.check_rounded, alignLeft: true),
-      secondaryBackground:
-          _SwipeBg(color: const Color(0xFFFFA7B9), icon: Icons.close_rounded, alignLeft: false),
+      background: const _SwipeRevealBackground(),
+      secondaryBackground: const _SwipeRevealBackground(),
       child: GlassCard(
         padding: const EdgeInsets.all(0),
         child: ClipRRect(
@@ -291,38 +283,10 @@ class _SwipeCard extends StatelessWidget {
               Positioned(
                 left: 18,
                 right: 18,
-                bottom: 24,
+                bottom: 182,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(999),
-                        color: Colors.black.withValues(alpha: 0.4),
-                        border: Border.all(color: Colors.white24),
-                      ),
-                      child: Text(
-                        entityLabel,
-                        style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                              color: const Color(0xFFEED1DA),
-                              letterSpacing: 1.2,
-                              fontWeight: FontWeight.w700,
-                              fontSize: 12,
-                            ),
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    Text(
-                      subtitle,
-                      style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                            color: const Color(0xFFF7B9C7),
-                            fontWeight: FontWeight.w800,
-                            letterSpacing: 1.2,
-                            shadows: const [Shadow(color: Colors.black54, blurRadius: 8)],
-                          ),
-                    ),
-                    const SizedBox(height: 8),
                     Text(
                       name,
                       maxLines: 2,
@@ -350,60 +314,32 @@ class _RuleBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GlassCard(
-      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
-      borderColor: AppColors.hotPink.withValues(alpha: 0.38),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            'KURAL',
-            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                  color: AppColors.textMuted,
-                  fontWeight: FontWeight.w700,
-                  letterSpacing: 1.2,
-                  fontSize: 12,
-                ),
-          ),
-          const SizedBox(width: 10),
-          Expanded(
-            child: Text(
-              text,
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-              style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                    fontSize: 28,
-                    height: 1.05,
-                  ),
+    return SizedBox(
+      width: double.infinity,
+      child: Text(
+        text,
+        textAlign: TextAlign.center,
+        maxLines: 2,
+        overflow: TextOverflow.ellipsis,
+        style: Theme.of(context).textTheme.titleLarge?.copyWith(
+              fontSize: 28,
+              height: 1.05,
             ),
-          ),
-        ],
       ),
     );
   }
 }
 
-class _SwipeBg extends StatelessWidget {
-  const _SwipeBg({required this.color, required this.icon, required this.alignLeft});
-
-  final Color color;
-  final IconData icon;
-  final bool alignLeft;
+class _SwipeRevealBackground extends StatelessWidget {
+  const _SwipeRevealBackground();
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(24),
-        gradient: LinearGradient(
-          colors: [color.withValues(alpha: 0.2), color.withValues(alpha: 0.45)],
-          begin: alignLeft ? Alignment.centerLeft : Alignment.centerRight,
-          end: alignLeft ? Alignment.centerRight : Alignment.centerLeft,
-        ),
+        color: Colors.black.withValues(alpha: 0.06),
       ),
-      alignment: alignLeft ? Alignment.centerLeft : Alignment.centerRight,
-      padding: const EdgeInsets.symmetric(horizontal: 28),
-      child: Icon(icon, color: color, size: 44),
     );
   }
 }
