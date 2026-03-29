@@ -1,5 +1,6 @@
 import argparse
 from pathlib import Path
+from typing import Optional
 
 import pandas as pd
 
@@ -13,7 +14,7 @@ COLUMN_CANDIDATES = {
 }
 
 
-def pick_column(columns: list[str], candidates: list[str]) -> str | None:
+def pick_column(columns: list[str], candidates: list[str]) -> Optional[str]:
     lowered = {col.lower(): col for col in columns}
     for candidate in candidates:
         if candidate.lower() in lowered:

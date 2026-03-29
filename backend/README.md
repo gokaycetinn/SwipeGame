@@ -56,12 +56,22 @@ Varsayilan siralama:
 
 - Wikipedia Summary API (thumbnail)
 - Wikimedia Commons API (search fallback)
+- Bing Image API (opsiyonel, `BING_IMAGE_API_KEY` varsa)
 
 ```bash
 python3 backend/scripts/enrich_player_images.py \
   --in backend/data/players_clean.csv \
   --out backend/data/players_enriched.csv \
   --limit 0
+```
+
+Provider sirasini degistirmek istersen:
+
+```bash
+python3 backend/scripts/enrich_player_images.py \
+  --in backend/data/players_clean.csv \
+  --out backend/data/players_enriched.csv \
+  --providers wikipedia,wikimedia,bing
 ```
 
 Not: Hizli deneme icin `--limit 500` gibi bir deger kullanabilirsin.
@@ -95,8 +105,38 @@ Bu komut su ciktilari uretir:
 - `POST /players`
 - `GET /players`
 - `POST /import/players/csv`
+- `POST /mvp/bootstrap`
 - `POST /rules/seed`
 - `POST /questions/generate`
+
+25K+ dataset icin import endpointine `batch_size` parametresi verebilirsin:
+
+```bash
+python3 -c "import urllib.request; req=urllib.request.Request('http://127.0.0.1:8000/import/players/csv?clear_existing=true&batch_size=2000', method='POST'); print(urllib.request.urlopen(req).read().decode())"
+```
+
+Import cevabinda asagidaki metrikler doner:
+
+- `total_rows`
+- `valid_rows`
+- `committed_batches`
+- `retry_report.retry_batches`
+- `retry_report.retry_row_success`
+- `retry_report.retry_row_failed`
+
+## MVP Hizli Baslangic
+
+Sunucuyu calistir:
+
+```bash
+python3 -m uvicorn app.main:app --reload --port 8000
+```
+
+Ardindan tek komutla bootstrap + soru uretim demosu:
+
+```bash
+python3 backend/scripts/run_mvp_demo.py --base-url http://127.0.0.1:8000 --count 5
+```
 
 ## Ornek Player POST
 
