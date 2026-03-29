@@ -17,7 +17,7 @@ void main() {
     await tester.pump(const Duration(milliseconds: 800));
 
     expect(find.text('FUTSWIPE'), findsAtLeastNWidgets(1));
-    expect(find.text('START GAME'), findsOneWidget);
+    expect(find.text('OYUNU BASLAT'), findsOneWidget);
 
     await tester.pumpWidget(const SizedBox.shrink());
     await tester.pumpAndSettle();

@@ -25,7 +25,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           children: [
             const _ProfileTopBar(),
             const SizedBox(height: 20),
-            Text('Statistics', style: Theme.of(context).textTheme.displayMedium),
+            Text('Istatistikler', style: Theme.of(context).textTheme.displayMedium),
             Container(
               margin: const EdgeInsets.only(top: 8),
               width: 68,
@@ -38,22 +38,22 @@ class _ProfileScreenState extends State<ProfileScreen> {
             const SizedBox(height: 20),
             const Row(
               children: [
-                Expanded(child: _QuickStat(icon: Icons.emoji_events_rounded, value: '14', label: 'HIGH SCORE')),
+                Expanded(child: _QuickStat(icon: Icons.emoji_events_rounded, value: '14', label: 'EN YUKSEK SKOR')),
                 SizedBox(width: 10),
-                Expanded(child: _QuickStat(icon: Icons.sports_soccer_rounded, value: '42', label: 'TOTAL GAMES')),
+                Expanded(child: _QuickStat(icon: Icons.sports_soccer_rounded, value: '42', label: 'TOPLAM OYUN')),
               ],
             ),
             const SizedBox(height: 10),
             const Row(
               children: [
-                Expanded(child: _QuickStat(icon: Icons.trending_up_rounded, value: '8.2', label: 'AVG SCORE')),
+                Expanded(child: _QuickStat(icon: Icons.trending_up_rounded, value: '8.2', label: 'ORT SKOR')),
                 SizedBox(width: 10),
-                Expanded(child: _QuickStat(icon: Icons.flash_on_rounded, value: '7', label: 'BEST STREAK')),
+                Expanded(child: _QuickStat(icon: Icons.flash_on_rounded, value: '7', label: 'EN IYI SERI')),
               ],
             ),
             const SizedBox(height: 22),
             Text(
-              'PREFERENCES',
+              'TERCIHLER',
               style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                     color: AppColors.textMuted,
                     letterSpacing: 2,
@@ -67,14 +67,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 children: [
                   _PreferenceTile(
                     icon: Icons.volume_up_rounded,
-                    title: 'Sound Effects',
+                    title: 'Ses Efektleri',
                     value: _soundEnabled,
                     onChanged: (v) => setState(() => _soundEnabled = v),
                   ),
                   Divider(color: Colors.white.withValues(alpha: 0.1)),
                   _PreferenceTile(
                     icon: Icons.vibration_rounded,
-                    title: 'Haptic Feedback',
+                    title: 'Dokunsal Geri Bildirim',
                     value: _hapticEnabled,
                     onChanged: (v) => setState(() => _hapticEnabled = v),
                   ),
@@ -83,7 +83,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             const SizedBox(height: 20),
             Text(
-              'DATA MANAGEMENT',
+              'VERI YONETIMI',
               style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                     color: AppColors.textMuted,
                     letterSpacing: 2,
@@ -95,7 +95,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               child: Row(
                 children: [
                   Text(
-                    'Reset Statistics',
+                    'Istatistikleri Sifirla',
                     style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                           color: const Color(0xFFFFB0BE),
                           fontWeight: FontWeight.w700,
@@ -128,7 +128,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Text(
-                      'STAY ON TOP',
+                      'ZIRVEDE KAL',
                       style: Theme.of(context).textTheme.titleLarge?.copyWith(
                             color: const Color(0xFFFFB0BE),
                             fontStyle: FontStyle.italic,
@@ -136,7 +136,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ),
                     const SizedBox(height: 6),
                     Text(
-                      'You are in the top 15% of players this season.',
+                      'Bu sezon oyuncularin en iyi %15 dilimindesin.',
                       style: Theme.of(context).textTheme.bodyLarge?.copyWith(color: Colors.white70),
                     ),
                   ],

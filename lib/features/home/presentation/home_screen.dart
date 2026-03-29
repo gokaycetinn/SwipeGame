@@ -50,7 +50,7 @@ class HomeScreen extends StatelessWidget {
                       .slideY(begin: 0.35, end: 0),
                   const SizedBox(height: 12),
                   Text(
-                    '10 Seconds. Infinite Cards. Perfect Swipes.',
+                    '10 Saniye. Sonsuz Kart. Kusursuz Kaydirma.',
                     textAlign: TextAlign.center,
                     style: Theme.of(context)
                         .textTheme
@@ -64,7 +64,7 @@ class HomeScreen extends StatelessWidget {
                         child: _FeatureTile(
                           icon: Icons.flash_on_rounded,
                           iconColor: AppColors.neonGreen,
-                          title: 'LIGHTNING\nFAST',
+                          title: 'SIMSEK\nHIZI',
                         ),
                       ),
                       SizedBox(width: 10),
@@ -72,7 +72,7 @@ class HomeScreen extends StatelessWidget {
                         child: _FeatureTile(
                           icon: Icons.emoji_events_rounded,
                           iconColor: AppColors.amber,
-                          title: 'ELITE\nCOMPETE',
+                          title: 'UST\nLIG',
                         ),
                       ),
                       SizedBox(width: 10),
@@ -80,14 +80,14 @@ class HomeScreen extends StatelessWidget {
                         child: _FeatureTile(
                           icon: Icons.dynamic_feed_rounded,
                           iconColor: AppColors.hotPink,
-                          title: 'DYNAMIC\nFEED',
+                          title: 'DINAMIK\nAKIS',
                         ),
                       ),
                     ],
                   ),
                   const SizedBox(height: 28),
                   NeonButton(
-                    title: 'START GAME',
+                    title: 'OYUNU BASLAT',
                     icon: Icons.play_arrow_rounded,
                     onTap: onStart,
                   ),

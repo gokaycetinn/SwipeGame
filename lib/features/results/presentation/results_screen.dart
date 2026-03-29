@@ -28,14 +28,14 @@ class ResultsScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "TIME'S UP!",
+              'SURE BITTI!',
               style: Theme.of(context).textTheme.displayMedium?.copyWith(
                     color: AppColors.hotPink,
                     fontStyle: FontStyle.italic,
                   ),
             ),
             Text(
-              'SESSION EXPIRED',
+              'OTURUM SONA ERDI',
               style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                     color: AppColors.textMuted,
                     letterSpacing: 2,
@@ -47,7 +47,7 @@ class ResultsScreen extends StatelessWidget {
               child: Column(
                 children: [
                   Text(
-                    'FINAL SCORE',
+                    'FINAL SKOR',
                     style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                           color: const Color(0xFFE9BDCA),
                           letterSpacing: 3,
@@ -61,7 +61,7 @@ class ResultsScreen extends StatelessWidget {
                       children: [
                         TextSpan(text: '${result.score}'),
                         TextSpan(
-                          text: ' SWIPES',
+                          text: ' KAYDIRMA',
                           style: Theme.of(context).textTheme.titleLarge?.copyWith(
                                 fontStyle: FontStyle.italic,
                                 color: const Color(0xFFFFBED3),
@@ -79,7 +79,7 @@ class ResultsScreen extends StatelessWidget {
                       border: Border.all(color: AppColors.amber.withValues(alpha: 0.4)),
                     ),
                     child: Text(
-                      'NEW PERSONAL BEST!',
+                      'YENI KISISSEL REKOR!',
                       style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                             color: AppColors.amber,
                             fontWeight: FontWeight.w700,
@@ -98,7 +98,7 @@ class ResultsScreen extends StatelessWidget {
                     icon: Icons.adjust,
                     iconColor: AppColors.neonGreen,
                     value: '$accuracy%',
-                    label: 'ACCURACY',
+                    label: 'DOGRULUK',
                   ),
                 ),
                 const SizedBox(width: 10),
@@ -107,7 +107,7 @@ class ResultsScreen extends StatelessWidget {
                     icon: Icons.flash_on_rounded,
                     iconColor: AppColors.hotPink,
                     value: '${result.bestStreak}',
-                    label: 'STREAK',
+                    label: 'SERI',
                   ),
                 ),
                 const SizedBox(width: 10),
@@ -116,14 +116,14 @@ class ResultsScreen extends StatelessWidget {
                     icon: Icons.speed_rounded,
                     iconColor: AppColors.amber,
                     value: '${speed}s',
-                    label: 'AVG SPEED',
+                    label: 'ORT HIZ',
                   ),
                 ),
               ],
             ),
             const Spacer(),
             NeonButton(
-              title: 'RETRY',
+              title: 'TEKRAR DENE',
               icon: Icons.replay_rounded,
               colors: const [Color(0xFF42D66B), Color(0xFF1F973E)],
               onTap: onRetry,
@@ -134,7 +134,7 @@ class ResultsScreen extends StatelessWidget {
               child: OutlinedButton.icon(
                 onPressed: () {},
                 icon: const Icon(Icons.share_rounded),
-                label: const Text('SHARE RESULTS'),
+                label: const Text('SONUCU PAYLAS'),
                 style: OutlinedButton.styleFrom(
                   side: BorderSide(color: Colors.white.withValues(alpha: 0.2)),
                   foregroundColor: const Color(0xFFE9BDCA),

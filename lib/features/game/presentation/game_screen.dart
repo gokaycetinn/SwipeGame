@@ -44,7 +44,7 @@ class GameScreen extends ConsumerWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'CURRENT RULE',
+                          'MEVCUT KURAL',
                           style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                                 color: AppColors.textMuted,
                                 letterSpacing: 1.7,
@@ -68,7 +68,7 @@ class GameScreen extends ConsumerWidget {
                     child: Column(
                       children: [
                         Text(
-                          'STREAK',
+                          'SERI',
                           style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                                 color: AppColors.textMuted,
                                 fontSize: 14,
