@@ -27,6 +27,7 @@ uvicorn app.main:app --reload --port 8000
 - `POST /rules`
 - `GET /rules`
 - `POST /rules/seed`
+- `POST /import/csv`
 - `POST /questions/generate`
 
 ## Ornek istekler
@@ -61,6 +62,28 @@ curl -X POST http://127.0.0.1:8000/questions/generate \
   -H "Content-Type: application/json" \
   -d '{"count": 10, "target_type": "mixed"}'
 ```
+
+### CSV ile toplu veri yukle
+
+Once su dosyalari doldur:
+
+- `backend/data/players.csv`
+- `backend/data/stadiums.csv`
+- `backend/data/rules.csv`
+
+Import islemi:
+
+```bash
+curl -X POST "http://127.0.0.1:8000/import/csv"
+```
+
+Mevcut verileri silip bastan import etmek istersen:
+
+```bash
+curl -X POST "http://127.0.0.1:8000/import/csv?clear_existing=true"
+```
+
+Donen cevabta her tablo icin `imported`, `skipped` ve `errors` alanlari gelir.
 
 ## Not
 
