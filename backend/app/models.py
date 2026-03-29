@@ -4,14 +4,12 @@ from sqlmodel import Field, SQLModel
 
 
 class PlayerBase(SQLModel):
-    first_name: str
-    last_name: str
-    photo_url: str
-    country: str
-    primary_position: str
-    clubs_csv: str = ""
-    competitions_won_csv: str = ""
-    leagues_played_csv: str = ""
+    full_name: str
+    nationality: str
+    club: str
+    position: str
+    age: int
+    photo_url: str = ""
 
 
 class Player(PlayerBase, table=True):

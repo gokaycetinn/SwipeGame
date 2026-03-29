@@ -1,6 +1,6 @@
-# FutSwipe Backend (FastAPI)
+# FutSwipe Backend (Dataset-First)
 
-Bu backend, FutSwipe icin futbolcu/stadyum verilerini kaydetmek ve bu verilere gore soru uretmek icin tasarlanmistir.
+Bu backend, buyuk futbol dataset'lerini (FIFA/European Soccer gibi) otomatik temizleyip oyuna aktarmak icin tasarlandi.
 
 ## Kurulum
 
@@ -14,77 +14,101 @@ pip install -r requirements.txt
 ## Calistirma
 
 ```bash
-uvicorn app.main:app --reload --port 8000
+python3 -m uvicorn app.main:app --reload --port 8000
 ```
 
-## Temel endpointler
+## Hedef Veri Formati
+
+Temizlenmis oyuncu dataset'i su kolonlara indirgenir:
+
+- `name`
+- `nationality`
+- `club`
+- `position`
+- `age`
+- `image_url` (pipeline tarafindan otomatik doldurulur)
+
+## Dataset Pipeline
+
+### 1) Raw dataset indir
+
+Direkt CSV linkin varsa:
+
+```bash
+python3 backend/scripts/download_dataset.py \
+  --url "<DIRECT_CSV_URL>" \
+  --out backend/data/raw/fifa_players.csv
+```
+
+Alternatif olarak CSV'yi elle indirip `backend/data/raw/` altina koyabilirsin.
+
+### 2) Temizle (sadece gerekli kolonlar)
+
+```bash
+python3 backend/scripts/clean_players_csv.py \
+  --in backend/data/raw/fifa_players.csv \
+  --out backend/data/players_clean.csv
+```
+
+### 3) Gorselleri otomatik cek
+
+Varsayilan siralama:
+
+- Wikipedia Summary API (thumbnail)
+- Wikimedia Commons API (search fallback)
+
+```bash
+python3 backend/scripts/enrich_player_images.py \
+  --in backend/data/players_clean.csv \
+  --out backend/data/players_enriched.csv \
+  --limit 0
+```
+
+Not: Hizli deneme icin `--limit 500` gibi bir deger kullanabilirsin.
+
+### 4) Backend'e import et
+
+```bash
+python3 -m uvicorn app.main:app --reload --port 8000
+```
+
+```bash
+python3 -c "import urllib.request; req=urllib.request.Request('http://127.0.0.1:8000/import/players/csv?clear_existing=true', method='POST'); print(urllib.request.urlopen(req).read().decode())"
+```
+
+## Tek Komut Pipeline
+
+```bash
+python3 backend/scripts/run_dataset_pipeline.py \
+  --raw backend/data/raw/fifa_players.csv \
+  --image-limit 1000
+```
+
+Bu komut su ciktilari uretir:
+
+- `backend/data/players_clean.csv`
+- `backend/data/players_enriched.csv`
+
+## Temel Endpointler
 
 - `GET /health`
 - `POST /players`
 - `GET /players`
-- `POST /stadiums`
-- `GET /stadiums`
-- `POST /rules`
-- `GET /rules`
+- `POST /import/players/csv`
 - `POST /rules/seed`
-- `POST /import/csv`
 - `POST /questions/generate`
 
-## Ornek istekler
-
-### Kural tohumla
-
-```bash
-curl -X POST http://127.0.0.1:8000/rules/seed
-```
-
-### Futbolcu ekle
+## Ornek Player POST
 
 ```bash
 curl -X POST http://127.0.0.1:8000/players \
   -H "Content-Type: application/json" \
   -d '{
-    "first_name": "Erling",
-    "last_name": "Haaland",
-    "photo_url": "https://example.com/haaland.jpg",
-    "country": "Norway",
-    "primary_position": "forward",
-    "clubs_csv": "Manchester City,Borussia Dortmund",
-    "competitions_won_csv": "UEFA Champions League",
-    "leagues_played_csv": "Premier League,Bundesliga"
+    "full_name": "Erling Haaland",
+    "nationality": "Norway",
+    "club": "Manchester City",
+    "position": "ST",
+    "age": 24,
+    "photo_url": "https://example.com/haaland.jpg"
   }'
 ```
-
-### Soru uret
-
-```bash
-curl -X POST http://127.0.0.1:8000/questions/generate \
-  -H "Content-Type: application/json" \
-  -d '{"count": 10, "target_type": "mixed"}'
-```
-
-### CSV ile toplu veri yukle
-
-Once su dosyalari doldur:
-
-- `backend/data/players.csv`
-- `backend/data/stadiums.csv`
-- `backend/data/rules.csv`
-
-Import islemi:
-
-```bash
-curl -X POST "http://127.0.0.1:8000/import/csv"
-```
-
-Mevcut verileri silip bastan import etmek istersen:
-
-```bash
-curl -X POST "http://127.0.0.1:8000/import/csv?clear_existing=true"
-```
-
-Donen cevabta her tablo icin `imported`, `skipped` ve `errors` alanlari gelir.
-
-## Not
-
-Ilk asamada sade bir kural motoru vardir. Bir sonraki adimda bunu SQL tabanli daha zengin bir kural motoruna ve zorluk dengelemesine genisletebiliriz.

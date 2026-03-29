@@ -13,14 +13,20 @@ def _contains(csv_value: str, token: str) -> bool:
 
 
 def _evaluate_player_rule(player: Player, key: str) -> bool:
-    if key == "won_ucl":
-        return _contains(player.competitions_won_csv, "uefa champions league")
     if key == "played_man_city":
-        return _contains(player.clubs_csv, "manchester city")
+        club = player.club.strip().lower()
+        return "manchester city" in club or "man city" in club
     if key == "is_forward":
-        return player.primary_position.strip().lower() == "forward"
-    if key == "played_serie_a":
-        return _contains(player.leagues_played_csv, "serie a")
+        position = player.position.strip().lower()
+        return (
+            "forward" in position
+            or "striker" in position
+            or position in {"st", "cf", "rw", "lw"}
+        )
+    if key == "age_under_23":
+        return player.age < 23
+    if key == "nationality_brazil":
+        return player.nationality.strip().lower() == "brazil"
     return False
 
 
@@ -73,8 +79,8 @@ def generate_questions(session: Session, payload: GenerateQuestionsRequest) -> l
                 QuestionCard(
                     entity_type="player",
                     entity_id=player.id or 0,
-                    title=f"{player.first_name} {player.last_name}",
-                    subtitle=f"{player.primary_position.upper()} • {player.country.upper()}",
+                    title=player.full_name,
+                    subtitle=f"{player.position.upper()} • {player.nationality.upper()} • {player.club}",
                     image_url=player.photo_url,
                     rule_text=rule.label_tr,
                     expected_answer=expected,
