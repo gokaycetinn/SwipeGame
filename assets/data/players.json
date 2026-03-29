@@ -1,0 +1,92 @@
+[
+  {
+    "first_name": "Erling",
+    "last_name": "Haaland",
+    "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Erling_Haaland_2023_%28fullcropped%29.jpg/640px-Erling_Haaland_2023_%28fullcropped%29.jpg",
+    "country": "Norway",
+    "primary_position": "Forward",
+    "clubs_csv": "Molde|Red Bull Salzburg|Borussia Dortmund|Manchester City",
+    "competitions_won_csv": "Champions League|Premier League|FA Cup"
+  },
+  {
+    "first_name": "Lionel",
+    "last_name": "Messi",
+    "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Lionel_Messi_WC2022.jpg/640px-Lionel_Messi_WC2022.jpg",
+    "country": "Argentina",
+    "primary_position": "Forward",
+    "clubs_csv": "Barcelona|Paris Saint-Germain|Inter Miami",
+    "competitions_won_csv": "Champions League|La Liga|Ballon d'Or"
+  },
+  {
+    "first_name": "Cristiano",
+    "last_name": "Ronaldo",
+    "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Cristiano_Ronaldo%2C_2023.jpg/640px-Cristiano_Ronaldo%2C_2023.jpg",
+    "country": "Portugal",
+    "primary_position": "Forward",
+    "clubs_csv": "Sporting CP|Manchester United|Real Madrid|Juventus|Al Nassr",
+    "competitions_won_csv": "Champions League|Premier League|Serie A|Ballon d'Or"
+  },
+  {
+    "first_name": "Kylian",
+    "last_name": "Mbappe",
+    "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Kylian_Mbappé_%282%29.jpg/640px-Kylian_Mbappé_%282%29.jpg",
+    "country": "France",
+    "primary_position": "Forward",
+    "clubs_csv": "Monaco|Paris Saint-Germain",
+    "competitions_won_csv": "World Cup|Ligue 1"
+  },
+  {
+    "first_name": "Kevin",
+    "last_name": "De Bruyne",
+    "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/2021-12-07_Fußball%2C_Männer%2C_UEFA_Champions_League%2C_RB_Leipzig_-_Manchester_City_FC_1DX_2782_by_Stepro.jpg/640px-2021-12-07_Fußball%2C_Männer%2C_UEFA_Champions_League%2C_RB_Leipzig_-_Manchester_City_FC_1DX_2782_by_Stepro.jpg",
+    "country": "Belgium",
+    "primary_position": "Midfielder",
+    "clubs_csv": "Genk|Chelsea|Werder Bremen|Wolfsburg|Manchester City",
+    "competitions_won_csv": "Premier League|Champions League"
+  },
+  {
+    "first_name": "Neymar",
+    "last_name": "Jr",
+    "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Neymar_Jr._with_Al_Hilal%2C_3_October_2023_-_03_%28cropped%29.jpg/640px-Neymar_Jr._with_Al_Hilal%2C_3_October_2023_-_03_%28cropped%29.jpg",
+    "country": "Brazil",
+    "primary_position": "Forward",
+    "clubs_csv": "Santos|Barcelona|Paris Saint-Germain",
+    "competitions_won_csv": "Champions League|La Liga"
+  },
+  {
+    "first_name": "Luka",
+    "last_name": "Modric",
+    "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Luka_Modrić_in_2018.jpg/640px-Luka_Modrić_in_2018.jpg",
+    "country": "Croatia",
+    "primary_position": "Midfielder",
+    "clubs_csv": "Tottenham|Real Madrid",
+    "competitions_won_csv": "Champions League|Ballon d'Or"
+  },
+  {
+    "first_name": "Karim",
+    "last_name": "Benzema",
+    "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Karim_Benzema_2021.jpg/640px-Karim_Benzema_2021.jpg",
+    "country": "France",
+    "primary_position": "Forward",
+    "clubs_csv": "Lyon|Real Madrid",
+    "competitions_won_csv": "Champions League|Ballon d'Or"
+  },
+  {
+    "first_name": "Mohamed",
+    "last_name": "Salah",
+    "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Mohamed_Salah_2018.jpg/640px-Mohamed_Salah_2018.jpg",
+    "country": "Egypt",
+    "primary_position": "Forward",
+    "clubs_csv": "Basel|Chelsea|Fiorentina|Roma|Liverpool",
+    "competitions_won_csv": "Champions League|Premier League"
+  },
+  {
+    "first_name": "Virgil",
+    "last_name": "van Dijk",
+    "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Alisson_Becker_and_Virgil_van_Dijk_04012026_%281%29.jpg/640px-Alisson_Becker_and_Virgil_van_Dijk_04012026_%281%29.jpg",
+    "country": "Netherlands",
+    "primary_position": "Defender",
+    "clubs_csv": "Groningen|Celtic|Southampton|Liverpool",
+    "competitions_won_csv": "Champions League|Premier League"
+  }
+]

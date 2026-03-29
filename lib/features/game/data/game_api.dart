@@ -1,57 +1,132 @@
 import 'dart:convert';
-import 'dart:io';
+import 'dart:math';
+
+import 'package:flutter/services.dart';
 
 import '../domain/quiz_card.dart';
 
 class GameApi {
   const GameApi();
 
-  static const String _defaultBaseUrl = String.fromEnvironment(
-    'FUTSWIPE_API_BASE_URL',
-    defaultValue: 'http://127.0.0.1:8000',
-  );
-
   Future<List<QuizCard>> fetchQuestions({
     int count = 14,
     String targetType = 'player',
   }) async {
-    final client = HttpClient();
-    client.connectionTimeout = const Duration(seconds: 4);
-
-    try {
-      final uri = Uri.parse('$_defaultBaseUrl/questions/generate');
-      final request = await client.postUrl(uri).timeout(const Duration(seconds: 4));
-      request.headers.contentType = ContentType.json;
-      request.write(
-        jsonEncode({
-          'count': count,
-          'target_type': targetType,
-        }),
-      );
-
-      final response = await request.close().timeout(const Duration(seconds: 5));
-      if (response.statusCode < 200 || response.statusCode >= 300) {
-        throw HttpException('Question API failed: ${response.statusCode}', uri: uri);
-      }
-
-      final body = await response.transform(utf8.decoder).join().timeout(
-            const Duration(seconds: 5),
-          );
-      final decoded = jsonDecode(body);
-      if (decoded is! List) {
-        throw const FormatException('Invalid question payload format');
-      }
-
-      return decoded
-          .whereType<Map<String, dynamic>>()
-          .map(QuizCard.fromBackendJson)
-          .where((card) =>
-              card.name.trim().isNotEmpty &&
-              card.imageUrl.trim().isNotEmpty &&
-              card.ruleText.trim().isNotEmpty)
-          .toList();
-    } finally {
-      client.close();
+    final raw = await rootBundle.loadString('assets/data/players.json');
+    final decoded = jsonDecode(raw);
+    if (decoded is! List) {
+      throw const FormatException('players.json must be a list');
     }
+
+    final players = decoded
+        .whereType<Map<String, dynamic>>()
+        .map(_LocalPlayer.fromJson)
+        .where((p) => p.fullName.isNotEmpty && p.photoUrl.isNotEmpty)
+        .toList();
+
+    if (players.isEmpty) {
+      return [];
+    }
+
+    final rules = _localRules;
+    final random = Random();
+    final safeCount = max(1, min(count, 40));
+
+    return List<QuizCard>.generate(safeCount, (index) {
+      final player = players[random.nextInt(players.length)];
+      final rule = rules[random.nextInt(rules.length)];
+      final expected = rule.evaluate(player);
+
+      return QuizCard(
+        id: '${player.fullName.toLowerCase().replaceAll(' ', '_')}-$index',
+        name: player.fullName,
+        subtitle: '${player.primaryPosition.toUpperCase()} • ${player.country.toUpperCase()}',
+        imageUrl: player.photoUrl,
+        ruleText: rule.label,
+        expectedAnswer: expected,
+      );
+    });
   }
 }
+
+class _LocalPlayer {
+  const _LocalPlayer({
+    required this.firstName,
+    required this.lastName,
+    required this.photoUrl,
+    required this.country,
+    required this.primaryPosition,
+    required this.clubs,
+    required this.competitions,
+  });
+
+  final String firstName;
+  final String lastName;
+  final String photoUrl;
+  final String country;
+  final String primaryPosition;
+  final List<String> clubs;
+  final List<String> competitions;
+
+  String get fullName => '$firstName $lastName'.trim();
+
+  factory _LocalPlayer.fromJson(Map<String, dynamic> json) {
+    List<String> splitPipe(dynamic value) {
+      return value
+              .toString()
+              .split('|')
+              .map((e) => e.trim())
+              .where((e) => e.isNotEmpty)
+              .toList();
+    }
+
+    return _LocalPlayer(
+      firstName: (json['first_name'] ?? '').toString().trim(),
+      lastName: (json['last_name'] ?? '').toString().trim(),
+      photoUrl: (json['photo_url'] ?? '').toString().trim(),
+      country: (json['country'] ?? '').toString().trim(),
+      primaryPosition: (json['primary_position'] ?? '').toString().trim(),
+      clubs: splitPipe(json['clubs_csv']),
+      competitions: splitPipe(json['competitions_won_csv']),
+    );
+  }
+}
+
+class _RuleDef {
+  const _RuleDef(this.label, this.evaluate);
+
+  final String label;
+  final bool Function(_LocalPlayer player) evaluate;
+}
+
+bool _containsToken(List<String> values, String token) {
+  final lower = token.toLowerCase();
+  return values.any((v) => v.toLowerCase().contains(lower));
+}
+
+final List<_RuleDef> _localRules = [
+  _RuleDef(
+    'Sampiyonlar Ligi kazandi',
+    (p) => _containsToken(p.competitions, 'champions league'),
+  ),
+  _RuleDef(
+    'Manchester City formasini giydi',
+    (p) => _containsToken(p.clubs, 'manchester city'),
+  ),
+  _RuleDef(
+    'Forvet pozisyonunda oynadi',
+    (p) => p.primaryPosition.toLowerCase().contains('forward'),
+  ),
+  _RuleDef(
+    'Ballon d\'Or kazandi',
+    (p) => _containsToken(p.competitions, "ballon d'or"),
+  ),
+  _RuleDef(
+    'Premier League kazandi',
+    (p) => _containsToken(p.competitions, 'premier league'),
+  ),
+  _RuleDef(
+    'Brezilyali futbolcu',
+    (p) => p.country.toLowerCase() == 'brazil',
+  ),
+];
