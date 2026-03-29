@@ -1,4 +1,4 @@
-# 📱 COMPREHENSIVE PRD: "FutSwipe" (Football Swipe Game)
+# 📱 COMPREHENSIVE PRD: "FutSwipe" (FutSwipe Game)
 
 **Platform:** iOS & Android (Cross-platform)  
 **Framework:** Flutter (Dart)  
