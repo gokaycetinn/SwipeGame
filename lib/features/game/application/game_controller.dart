@@ -3,7 +3,6 @@ import 'dart:math';
 
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_vibrate/flutter_vibrate.dart';
 
 import '../data/sample_cards.dart';
 import 'game_state.dart';
@@ -133,18 +132,11 @@ class GameController extends StateNotifier<GameState> {
   }
 
   Future<void> _fireHaptic({required bool isSuccess}) async {
-    try {
-      final canVibrate = await Vibrate.canVibrate;
-      if (canVibrate) {
-        await Vibrate.feedback(
-          isSuccess ? FeedbackType.success : FeedbackType.error,
-        );
-      } else {
-        await HapticFeedback.mediumImpact();
-      }
-    } catch (_) {
-      await HapticFeedback.mediumImpact();
+    if (isSuccess) {
+      await HapticFeedback.lightImpact();
+      return;
     }
+    await HapticFeedback.heavyImpact();
   }
 
   @override
