@@ -4,7 +4,9 @@ import 'dart:math';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../data/game_api.dart';
 import '../data/sample_cards.dart';
+import '../domain/quiz_card.dart';
 import 'game_state.dart';
 
 final gameControllerProvider =
@@ -16,13 +18,15 @@ class GameController extends StateNotifier<GameState> {
   GameController() : super(GameState.initial());
 
   static const int _roundDurationMs = 10000;
+  static const int _roundCardCount = 14;
 
   Timer? _ticker;
   final Stopwatch _stopwatch = Stopwatch();
+  final GameApi _api = const GameApi();
   int _penaltyMs = 0;
   bool _inputLocked = false;
 
-  void startNewRound() {
+  Future<void> startNewRound() async {
     _ticker?.cancel();
     _stopwatch
       ..reset()
@@ -30,13 +34,12 @@ class GameController extends StateNotifier<GameState> {
     _penaltyMs = 0;
     _inputLocked = false;
 
-    final random = Random();
-    final deck = [...sampleCards]..shuffle(random);
-    final currentRule = gameRules[random.nextInt(gameRules.length)];
+    final deck = await _loadRoundDeck();
+    final firstRule = deck.isEmpty ? '' : deck.first.ruleText;
 
     state = state.copyWith(
       deck: deck,
-      currentRule: currentRule,
+      currentRule: firstRule,
       currentIndex: 0,
       score: 0,
       streak: 0,
@@ -53,13 +56,28 @@ class GameController extends StateNotifier<GameState> {
     _ticker = Timer.periodic(const Duration(milliseconds: 16), (_) => _tick());
   }
 
+  Future<List<QuizCard>> _loadRoundDeck() async {
+    try {
+      final cards = await _api.fetchQuestions(count: _roundCardCount, targetType: 'player');
+      if (cards.isNotEmpty) {
+        return cards;
+      }
+    } catch (_) {
+      // Network or backend errors fall back to local sample data.
+    }
+
+    final random = Random();
+    final fallback = [...sampleCards]..shuffle(random);
+    return fallback;
+  }
+
   void submitAnswer({required bool matchesRule}) {
     if (!state.isRunning || _inputLocked || state.currentCard == null) {
       return;
     }
 
     final card = state.currentCard!;
-    final expected = card.rules[state.currentRule] ?? false;
+    final expected = card.expectedAnswer;
     final isCorrect = expected == matchesRule;
 
     final streak = isCorrect ? state.streak + 1 : 0;
@@ -76,13 +94,19 @@ class GameController extends StateNotifier<GameState> {
       });
     }
 
+    final nextIndex = state.currentIndex + 1;
+    final nextRule = state.deck.isEmpty
+        ? ''
+        : state.deck[nextIndex % state.deck.length].ruleText;
+
     state = state.copyWith(
       score: state.score + (isCorrect ? 1 : 0),
       streak: streak,
       bestStreak: bestStreak,
       totalSwipes: state.totalSwipes + 1,
       correctSwipes: state.correctSwipes + (isCorrect ? 1 : 0),
-      currentIndex: state.currentIndex + 1,
+      currentIndex: nextIndex,
+      currentRule: nextRule,
       remainingMs: _remainingMs(),
     );
 
