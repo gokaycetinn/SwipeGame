@@ -1,0 +1,3 @@
+first_name,last_name,photo_url,country,primary_position,clubs_csv,competitions_won_csv,leagues_played_csv
+Erling,Haaland,https://example.com/players/haaland.jpg,Norway,forward,"Manchester City,Borussia Dortmund","UEFA Champions League","Premier League,Bundesliga"
+Luka,Modric,https://example.com/players/modric.jpg,Croatia,midfielder,"Real Madrid,Tottenham Hotspur","UEFA Champions League,Ballon d'Or","La Liga,Premier League"
