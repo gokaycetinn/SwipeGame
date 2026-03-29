@@ -5,8 +5,8 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Erling_Haaland_2023_%28fullcropped%29.jpg/640px-Erling_Haaland_2023_%28fullcropped%29.jpg",
     "country": "Norway",
     "primary_position": "Forward",
-    "clubs_csv": "Molde|Red Bull Salzburg|Borussia Dortmund|Manchester City",
-    "competitions_won_csv": "Champions League|Premier League|FA Cup"
+    "clubs_csv": "Manchester City|Borussia Dortmund|RB Salzburg",
+    "competitions_won_csv": "Champions League|Premier League|Bundesliga (Austria)"
   },
   {
     "first_name": "Lionel",
@@ -14,8 +14,8 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Lionel_Messi_WC2022.jpg/640px-Lionel_Messi_WC2022.jpg",
     "country": "Argentina",
     "primary_position": "Forward",
-    "clubs_csv": "Barcelona|Paris Saint-Germain|Inter Miami",
-    "competitions_won_csv": "Champions League|La Liga|Ballon d'Or"
+    "clubs_csv": "Inter Miami|Paris Saint-Germain|Barcelona",
+    "competitions_won_csv": "World Cup|Copa America|Champions League|La Liga|Ligue 1"
   },
   {
     "first_name": "Cristiano",
@@ -23,26 +23,26 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Cristiano_Ronaldo%2C_2023.jpg/640px-Cristiano_Ronaldo%2C_2023.jpg",
     "country": "Portugal",
     "primary_position": "Forward",
-    "clubs_csv": "Sporting CP|Manchester United|Real Madrid|Juventus|Al Nassr",
-    "competitions_won_csv": "Champions League|Premier League|Serie A|Ballon d'Or"
+    "clubs_csv": "Al Nassr|Manchester United|Juventus|Real Madrid|Sporting CP",
+    "competitions_won_csv": "Champions League|Euro Championship|Premier League|La Liga|Serie A"
   },
   {
     "first_name": "Kylian",
     "last_name": "Mbappe",
-    "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Kylian_Mbappé_%282%29.jpg/640px-Kylian_Mbappé_%282%29.jpg",
+    "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Kylian_Mbapp\u00e9_%282%29.jpg/640px-Kylian_Mbapp\u00e9_%282%29.jpg",
     "country": "France",
     "primary_position": "Forward",
-    "clubs_csv": "Monaco|Paris Saint-Germain",
-    "competitions_won_csv": "World Cup|Ligue 1"
+    "clubs_csv": "Real Madrid|Paris Saint-Germain|Monaco",
+    "competitions_won_csv": "World Cup|Ligue 1|Nations League"
   },
   {
     "first_name": "Kevin",
     "last_name": "De Bruyne",
-    "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/2021-12-07_Fußball%2C_Männer%2C_UEFA_Champions_League%2C_RB_Leipzig_-_Manchester_City_FC_1DX_2782_by_Stepro.jpg/640px-2021-12-07_Fußball%2C_Männer%2C_UEFA_Champions_League%2C_RB_Leipzig_-_Manchester_City_FC_1DX_2782_by_Stepro.jpg",
+    "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/2021-12-07_Fu\u00dfball%2C_M\u00e4nner%2C_UEFA_Champions_League%2C_RB_Leipzig_-_Manchester_City_FC_1DX_2782_by_Stepro.jpg/640px-2021-12-07_Fu\u00dfball%2C_M\u00e4nner%2C_UEFA_Champions_League%2C_RB_Leipzig_-_Manchester_City_FC_1DX_2782_by_Stepro.jpg",
     "country": "Belgium",
     "primary_position": "Midfielder",
-    "clubs_csv": "Genk|Chelsea|Werder Bremen|Wolfsburg|Manchester City",
-    "competitions_won_csv": "Premier League|Champions League"
+    "clubs_csv": "Manchester City|Wolfsburg|Chelsea|Werder Bremen",
+    "competitions_won_csv": "Champions League|Premier League|DFB-Pokal"
   },
   {
     "first_name": "Neymar",
@@ -50,17 +50,17 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Neymar_Jr._with_Al_Hilal%2C_3_October_2023_-_03_%28cropped%29.jpg/640px-Neymar_Jr._with_Al_Hilal%2C_3_October_2023_-_03_%28cropped%29.jpg",
     "country": "Brazil",
     "primary_position": "Forward",
-    "clubs_csv": "Santos|Barcelona|Paris Saint-Germain",
-    "competitions_won_csv": "Champions League|La Liga"
+    "clubs_csv": "Al Hilal|Paris Saint-Germain|Barcelona|Santos",
+    "competitions_won_csv": "Champions League|Copa Libertadores|La Liga|Ligue 1"
   },
   {
     "first_name": "Luka",
     "last_name": "Modric",
-    "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Luka_Modrić_in_2018.jpg/640px-Luka_Modrić_in_2018.jpg",
+    "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Luka_Modri\u0107_in_2018.jpg/640px-Luka_Modri\u0107_in_2018.jpg",
     "country": "Croatia",
     "primary_position": "Midfielder",
-    "clubs_csv": "Tottenham|Real Madrid",
-    "competitions_won_csv": "Champions League|Ballon d'Or"
+    "clubs_csv": "Real Madrid|Tottenham|Dinamo Zagreb",
+    "competitions_won_csv": "Champions League|Ballon d'Or|La Liga"
   },
   {
     "first_name": "Karim",
@@ -68,8 +68,8 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Karim_Benzema_2021.jpg/640px-Karim_Benzema_2021.jpg",
     "country": "France",
     "primary_position": "Forward",
-    "clubs_csv": "Lyon|Real Madrid",
-    "competitions_won_csv": "Champions League|Ballon d'Or"
+    "clubs_csv": "Al Ittihad|Real Madrid|Lyon",
+    "competitions_won_csv": "Ballon d'Or|Champions League|La Liga|Ligue 1"
   },
   {
     "first_name": "Mohamed",
@@ -77,8 +77,8 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Mohamed_Salah_2018.jpg/640px-Mohamed_Salah_2018.jpg",
     "country": "Egypt",
     "primary_position": "Forward",
-    "clubs_csv": "Basel|Chelsea|Fiorentina|Roma|Liverpool",
-    "competitions_won_csv": "Champions League|Premier League"
+    "clubs_csv": "Liverpool|Roma|Fiorentina|Chelsea|Basel",
+    "competitions_won_csv": "Champions League|Premier League|Swiss Super League"
   },
   {
     "first_name": "Virgil",
@@ -86,7 +86,817 @@
     "photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Alisson_Becker_and_Virgil_van_Dijk_04012026_%281%29.jpg/640px-Alisson_Becker_and_Virgil_van_Dijk_04012026_%281%29.jpg",
     "country": "Netherlands",
     "primary_position": "Defender",
-    "clubs_csv": "Groningen|Celtic|Southampton|Liverpool",
+    "clubs_csv": "Liverpool|Southampton|Celtic|Groningen",
+    "competitions_won_csv": "Champions League|Premier League|Scottish Premiership"
+  },
+  {
+    "first_name": "Jude",
+    "last_name": "Bellingham",
+    "photo_url": "",
+    "country": "England",
+    "primary_position": "Midfielder",
+    "clubs_csv": "Real Madrid|Borussia Dortmund|Birmingham City",
+    "competitions_won_csv": "Champions League|La Liga|DFB-Pokal"
+  },
+  {
+    "first_name": "Harry",
+    "last_name": "Kane",
+    "photo_url": "",
+    "country": "England",
+    "primary_position": "Forward",
+    "clubs_csv": "Bayern Munich|Tottenham|Leicester City",
+    "competitions_won_csv": "Golden Boot"
+  },
+  {
+    "first_name": "Robert",
+    "last_name": "Lewandowski",
+    "photo_url": "",
+    "country": "Poland",
+    "primary_position": "Forward",
+    "clubs_csv": "Barcelona|Bayern Munich|Borussia Dortmund",
+    "competitions_won_csv": "Champions League|Bundesliga|La Liga"
+  },
+  {
+    "first_name": "Vinicius",
+    "last_name": "Junior",
+    "photo_url": "",
+    "country": "Brazil",
+    "primary_position": "Forward",
+    "clubs_csv": "Real Madrid|Flamengo",
+    "competitions_won_csv": "Champions League|La Liga|Club World Cup"
+  },
+  {
+    "first_name": "Rodri",
+    "last_name": "Hernandez",
+    "photo_url": "",
+    "country": "Spain",
+    "primary_position": "Midfielder",
+    "clubs_csv": "Manchester City|Atletico Madrid|Villarreal",
+    "competitions_won_csv": "Ballon d'Or|Champions League|Premier League|Euro Championship"
+  },
+  {
+    "first_name": "Phil",
+    "last_name": "Foden",
+    "photo_url": "",
+    "country": "England",
+    "primary_position": "Midfielder",
+    "clubs_csv": "Manchester City",
     "competitions_won_csv": "Champions League|Premier League"
+  },
+  {
+    "first_name": "Bukayo",
+    "last_name": "Saka",
+    "photo_url": "",
+    "country": "England",
+    "primary_position": "Forward",
+    "clubs_csv": "Arsenal",
+    "competitions_won_csv": "FA Cup|Community Shield"
+  },
+  {
+    "first_name": "Martin",
+    "last_name": "Odegaard",
+    "photo_url": "",
+    "country": "Norway",
+    "primary_position": "Midfielder",
+    "clubs_csv": "Arsenal|Real Madrid|Real Sociedad|Vitesse",
+    "competitions_won_csv": "Copa del Rey"
+  },
+  {
+    "first_name": "Bruno",
+    "last_name": "Fernandes",
+    "photo_url": "",
+    "country": "Portugal",
+    "primary_position": "Midfielder",
+    "clubs_csv": "Manchester United|Sporting CP|Sampdoria|Udinese",
+    "competitions_won_csv": "FA Cup|Nations League|League Cup"
+  },
+  {
+    "first_name": "Bernardo",
+    "last_name": "Silva",
+    "photo_url": "",
+    "country": "Portugal",
+    "primary_position": "Midfielder",
+    "clubs_csv": "Manchester City|Monaco|Benfica",
+    "competitions_won_csv": "Champions League|Premier League|Ligue 1|Nations League"
+  },
+  {
+    "first_name": "Ruben",
+    "last_name": "Dias",
+    "photo_url": "",
+    "country": "Portugal",
+    "primary_position": "Defender",
+    "clubs_csv": "Manchester City|Benfica",
+    "competitions_won_csv": "Champions League|Premier League|Nations League"
+  },
+  {
+    "first_name": "Alisson",
+    "last_name": "Becker",
+    "photo_url": "",
+    "country": "Brazil",
+    "primary_position": "Goalkeeper",
+    "clubs_csv": "Liverpool|Roma|Internacional",
+    "competitions_won_csv": "Champions League|Premier League|Copa America"
+  },
+  {
+    "first_name": "Ederson",
+    "last_name": "Moraes",
+    "photo_url": "",
+    "country": "Brazil",
+    "primary_position": "Goalkeeper",
+    "clubs_csv": "Manchester City|Benfica|Rio Ave",
+    "competitions_won_csv": "Champions League|Premier League|Copa America"
+  },
+  {
+    "first_name": "Jan",
+    "last_name": "Oblak",
+    "photo_url": "",
+    "country": "Slovenia",
+    "primary_position": "Goalkeeper",
+    "clubs_csv": "Atletico Madrid|Benfica",
+    "competitions_won_csv": "La Liga|Europa League"
+  },
+  {
+    "first_name": "Marc-Andre",
+    "last_name": "ter Stegen",
+    "photo_url": "",
+    "country": "Germany",
+    "primary_position": "Goalkeeper",
+    "clubs_csv": "Barcelona|Borussia Monchengladbach",
+    "competitions_won_csv": "Champions League|La Liga|Confederations Cup"
+  },
+  {
+    "first_name": "Thibaut",
+    "last_name": "Courtois",
+    "photo_url": "",
+    "country": "Belgium",
+    "primary_position": "Goalkeeper",
+    "clubs_csv": "Real Madrid|Chelsea|Atletico Madrid|Genk",
+    "competitions_won_csv": "Champions League|Premier League|La Liga"
+  },
+  {
+    "first_name": "Manuel",
+    "last_name": "Neuer",
+    "photo_url": "",
+    "country": "Germany",
+    "primary_position": "Goalkeeper",
+    "clubs_csv": "Bayern Munich|Schalke 04",
+    "competitions_won_csv": "World Cup|Champions League|Bundesliga"
+  },
+  {
+    "first_name": "Achraf",
+    "last_name": "Hakimi",
+    "photo_url": "",
+    "country": "Morocco",
+    "primary_position": "Defender",
+    "clubs_csv": "Paris Saint-Germain|Inter|Dortmund|Real Madrid",
+    "competitions_won_csv": "Champions League|Serie A|Ligue 1"
+  },
+  {
+    "first_name": "Theo",
+    "last_name": "Hernandez",
+    "photo_url": "",
+    "country": "France",
+    "primary_position": "Defender",
+    "clubs_csv": "Milan|Real Madrid|Real Sociedad|Atletico Madrid",
+    "competitions_won_csv": "Champions League|Serie A|Nations League"
+  },
+  {
+    "first_name": "Reece",
+    "last_name": "James",
+    "photo_url": "",
+    "country": "England",
+    "primary_position": "Defender",
+    "clubs_csv": "Chelsea|Wigan Athletic",
+    "competitions_won_csv": "Champions League|Club World Cup"
+  },
+  {
+    "first_name": "Trent",
+    "last_name": "Alexander-Arnold",
+    "photo_url": "",
+    "country": "England",
+    "primary_position": "Defender",
+    "clubs_csv": "Liverpool",
+    "competitions_won_csv": "Champions League|Premier League|FA Cup"
+  },
+  {
+    "first_name": "Andrew",
+    "last_name": "Robertson",
+    "photo_url": "",
+    "country": "Scotland",
+    "primary_position": "Defender",
+    "clubs_csv": "Liverpool|Hull City|Dundee United",
+    "competitions_won_csv": "Champions League|Premier League|League Cup"
+  },
+  {
+    "first_name": "Antonio",
+    "last_name": "Rudiger",
+    "photo_url": "",
+    "country": "Germany",
+    "primary_position": "Defender",
+    "clubs_csv": "Real Madrid|Chelsea|Roma|Stuttgart",
+    "competitions_won_csv": "Champions League|La Liga|Europa League"
+  },
+  {
+    "first_name": "Eder",
+    "last_name": "Militao",
+    "photo_url": "",
+    "country": "Brazil",
+    "primary_position": "Defender",
+    "clubs_csv": "Real Madrid|Porto|Sao Paulo",
+    "competitions_won_csv": "Champions League|La Liga|Copa America"
+  },
+  {
+    "first_name": "William",
+    "last_name": "Saliba",
+    "photo_url": "",
+    "country": "France",
+    "primary_position": "Defender",
+    "clubs_csv": "Arsenal|Marseille|Nice|Saint-Etienne",
+    "competitions_won_csv": "Nations League|Community Shield"
+  },
+  {
+    "first_name": "Ronald",
+    "last_name": "Araujo",
+    "photo_url": "",
+    "country": "Uruguay",
+    "primary_position": "Defender",
+    "clubs_csv": "Barcelona|Boston River",
+    "competitions_won_csv": "La Liga|Copa del Rey"
+  },
+  {
+    "first_name": "Pau",
+    "last_name": "Cubarsi",
+    "photo_url": "",
+    "country": "Spain",
+    "primary_position": "Defender",
+    "clubs_csv": "Barcelona",
+    "competitions_won_csv": "Olympic Gold Medal"
+  },
+  {
+    "first_name": "Federico",
+    "last_name": "Valverde",
+    "photo_url": "",
+    "country": "Uruguay",
+    "primary_position": "Midfielder",
+    "clubs_csv": "Real Madrid|Deportivo La Coruna|Penarol",
+    "competitions_won_csv": "Champions League|La Liga|Club World Cup"
+  },
+  {
+    "first_name": "Aurelien",
+    "last_name": "Tchouameni",
+    "photo_url": "",
+    "country": "France",
+    "primary_position": "Midfielder",
+    "clubs_csv": "Real Madrid|Monaco|Bordeaux",
+    "competitions_won_csv": "Champions League|La Liga|Nations League"
+  },
+  {
+    "first_name": "Eduardo",
+    "last_name": "Camavinga",
+    "photo_url": "",
+    "country": "France",
+    "primary_position": "Midfielder",
+    "clubs_csv": "Real Madrid|Rennes",
+    "competitions_won_csv": "Champions League|La Liga|Nations League"
+  },
+  {
+    "first_name": "Declan",
+    "last_name": "Rice",
+    "photo_url": "",
+    "country": "England",
+    "primary_position": "Midfielder",
+    "clubs_csv": "Arsenal|West Ham",
+    "competitions_won_csv": "Conference League|Community Shield"
+  },
+  {
+    "first_name": "Enzo",
+    "last_name": "Fernandez",
+    "photo_url": "",
+    "country": "Argentina",
+    "primary_position": "Midfielder",
+    "clubs_csv": "Chelsea|Benfica|River Plate",
+    "competitions_won_csv": "World Cup|Copa America|Copa Sudamericana"
+  },
+  {
+    "first_name": "Alexis",
+    "last_name": "Mac Allister",
+    "photo_url": "",
+    "country": "Argentina",
+    "primary_position": "Midfielder",
+    "clubs_csv": "Liverpool|Brighton|Boca Juniors",
+    "competitions_won_csv": "World Cup|Copa America|League Cup"
+  },
+  {
+    "first_name": "Florian",
+    "last_name": "Wirtz",
+    "photo_url": "",
+    "country": "Germany",
+    "primary_position": "Midfielder",
+    "clubs_csv": "Bayer Leverkusen",
+    "competitions_won_csv": "Bundesliga|DFB-Pokal"
+  },
+  {
+    "first_name": "Jamal",
+    "last_name": "Musiala",
+    "photo_url": "",
+    "country": "Germany",
+    "primary_position": "Midfielder",
+    "clubs_csv": "Bayern Munich",
+    "competitions_won_csv": "Champions League|Bundesliga|Club World Cup"
+  },
+  {
+    "first_name": "Kai",
+    "last_name": "Havertz",
+    "photo_url": "",
+    "country": "Germany",
+    "primary_position": "Forward",
+    "clubs_csv": "Arsenal|Chelsea|Bayer Leverkusen",
+    "competitions_won_csv": "Champions League|Club World Cup"
+  },
+  {
+    "first_name": "Leroy",
+    "last_name": "Sane",
+    "photo_url": "",
+    "country": "Germany",
+    "primary_position": "Forward",
+    "clubs_csv": "Bayern Munich|Manchester City|Schalke 04",
+    "competitions_won_csv": "Premier League|Bundesliga|Club World Cup"
+  },
+  {
+    "first_name": "Kingsley",
+    "last_name": "Coman",
+    "photo_url": "",
+    "country": "France",
+    "primary_position": "Forward",
+    "clubs_csv": "Bayern Munich|Juventus|Paris Saint-Germain",
+    "competitions_won_csv": "Champions League|Bundesliga|Serie A|Ligue 1"
+  },
+  {
+    "first_name": "Antoine",
+    "last_name": "Griezmann",
+    "photo_url": "",
+    "country": "France",
+    "primary_position": "Forward",
+    "clubs_csv": "Atletico Madrid|Barcelona|Real Sociedad",
+    "competitions_won_csv": "World Cup|Europa League|Nations League|Copa del Rey"
+  },
+  {
+    "first_name": "Ousmane",
+    "last_name": "Dembele",
+    "photo_url": "",
+    "country": "France",
+    "primary_position": "Forward",
+    "clubs_csv": "Paris Saint-Germain|Barcelona|Dortmund|Rennes",
+    "competitions_won_csv": "World Cup|La Liga|Ligue 1|DFB-Pokal"
+  },
+  {
+    "first_name": "Khvicha",
+    "last_name": "Kvaratskhelia",
+    "photo_url": "",
+    "country": "Georgia",
+    "primary_position": "Forward",
+    "clubs_csv": "Napoli|Dinamo Batumi|Rubin Kazan",
+    "competitions_won_csv": "Serie A"
+  },
+  {
+    "first_name": "Victor",
+    "last_name": "Osimhen",
+    "photo_url": "",
+    "country": "Nigeria",
+    "primary_position": "Forward",
+    "clubs_csv": "Galatasaray|Napoli|Lille|Wolfsburg",
+    "competitions_won_csv": "Serie A"
+  },
+  {
+    "first_name": "Lautaro",
+    "last_name": "Martinez",
+    "photo_url": "",
+    "country": "Argentina",
+    "primary_position": "Forward",
+    "clubs_csv": "Inter|Racing Club",
+    "competitions_won_csv": "World Cup|Copa America|Serie A"
+  },
+  {
+    "first_name": "Paulo",
+    "last_name": "Dybala",
+    "photo_url": "",
+    "country": "Argentina",
+    "primary_position": "Forward",
+    "clubs_csv": "Roma|Juventus|Palermo",
+    "competitions_won_csv": "World Cup|Serie A|Coppa Italia"
+  },
+  {
+    "first_name": "Nicolo",
+    "last_name": "Barella",
+    "photo_url": "",
+    "country": "Italy",
+    "primary_position": "Midfielder",
+    "clubs_csv": "Inter|Cagliari",
+    "competitions_won_csv": "Euro Championship|Serie A|Coppa Italia"
+  },
+  {
+    "first_name": "Hakan",
+    "last_name": "Calhanoglu",
+    "photo_url": "",
+    "country": "Turkey",
+    "primary_position": "Midfielder",
+    "clubs_csv": "Inter|Milan|Leverkusen|Hamburg",
+    "competitions_won_csv": "Serie A|Coppa Italia|Supercoppa Italiana"
+  },
+  {
+    "first_name": "Rafael",
+    "last_name": "Leao",
+    "photo_url": "",
+    "country": "Portugal",
+    "primary_position": "Forward",
+    "clubs_csv": "Milan|Lille|Sporting CP",
+    "competitions_won_csv": "Serie A"
+  },
+  {
+    "first_name": "Joao",
+    "last_name": "Felix",
+    "photo_url": "",
+    "country": "Portugal",
+    "primary_position": "Forward",
+    "clubs_csv": "Chelsea|Barcelona|Atletico Madrid|Benfica",
+    "competitions_won_csv": "La Liga|Nations League|Primeira Liga"
+  },
+  {
+    "first_name": "Joao",
+    "last_name": "Cancelo",
+    "photo_url": "",
+    "country": "Portugal",
+    "primary_position": "Defender",
+    "clubs_csv": "Al Hilal|Barcelona|Bayern|Man City|Juventus|Valencia|Benfica",
+    "competitions_won_csv": "Premier League|Serie A|Bundesliga|Nations League"
+  },
+  {
+    "first_name": "Frenkie",
+    "last_name": "de Jong",
+    "photo_url": "",
+    "country": "Netherlands",
+    "primary_position": "Midfielder",
+    "clubs_csv": "Barcelona|Ajax",
+    "competitions_won_csv": "La Liga|Eredivisie|Copa del Rey"
+  },
+  {
+    "first_name": "Pedri",
+    "last_name": "Gonzalez",
+    "photo_url": "",
+    "country": "Spain",
+    "primary_position": "Midfielder",
+    "clubs_csv": "Barcelona|Las Palmas",
+    "competitions_won_csv": "Euro Championship|La Liga|Copa del Rey"
+  },
+  {
+    "first_name": "Gavi",
+    "last_name": "Paez",
+    "photo_url": "",
+    "country": "Spain",
+    "primary_position": "Midfielder",
+    "clubs_csv": "Barcelona",
+    "competitions_won_csv": "Euro Championship|La Liga|Nations League"
+  },
+  {
+    "first_name": "Ilkay",
+    "last_name": "Gundogan",
+    "photo_url": "",
+    "country": "Germany",
+    "primary_position": "Midfielder",
+    "clubs_csv": "Manchester City|Barcelona|Dortmund|Nürnberg",
+    "competitions_won_csv": "Champions League|Premier League|Bundesliga"
+  },
+  {
+    "first_name": "Dani",
+    "last_name": "Carvajal",
+    "photo_url": "",
+    "country": "Spain",
+    "primary_position": "Defender",
+    "clubs_csv": "Real Madrid|Bayer Leverkusen",
+    "competitions_won_csv": "Champions League|Euro Championship|La Liga"
+  },
+  {
+    "first_name": "Ferland",
+    "last_name": "Mendy",
+    "photo_url": "",
+    "country": "France",
+    "primary_position": "Defender",
+    "clubs_csv": "Real Madrid|Lyon|Le Havre",
+    "competitions_won_csv": "Champions League|La Liga"
+  },
+  {
+    "first_name": "Dani",
+    "last_name": "Olmo",
+    "photo_url": "",
+    "country": "Spain",
+    "primary_position": "Midfielder",
+    "clubs_csv": "Barcelona|RB Leipzig|Dinamo Zagreb",
+    "competitions_won_csv": "Euro Championship|Nations League|DFB-Pokal"
+  },
+  {
+    "first_name": "Mikel",
+    "last_name": "Merino",
+    "photo_url": "",
+    "country": "Spain",
+    "primary_position": "Midfielder",
+    "clubs_csv": "Arsenal|Real Sociedad|Newcastle|Dortmund|Osasuna",
+    "competitions_won_csv": "Euro Championship|Nations League|Copa del Rey"
+  },
+  {
+    "first_name": "Unai",
+    "last_name": "Simon",
+    "photo_url": "",
+    "country": "Spain",
+    "primary_position": "Goalkeeper",
+    "clubs_csv": "Athletic Bilbao",
+    "competitions_won_csv": "Euro Championship|Nations League"
+  },
+  {
+    "first_name": "Mike",
+    "last_name": "Maignan",
+    "photo_url": "",
+    "country": "France",
+    "primary_position": "Goalkeeper",
+    "clubs_csv": "Milan|Lille",
+    "competitions_won_csv": "Serie A|Ligue 1|Nations League"
+  },
+  {
+    "first_name": "Gianluigi",
+    "last_name": "Donnarumma",
+    "photo_url": "",
+    "country": "Italy",
+    "primary_position": "Goalkeeper",
+    "clubs_csv": "Paris Saint-Germain|Milan",
+    "competitions_won_csv": "Euro Championship|Ligue 1"
+  },
+  {
+    "first_name": "Matteo",
+    "last_name": "Darmian",
+    "photo_url": "",
+    "country": "Italy",
+    "primary_position": "Defender",
+    "clubs_csv": "Inter|Parma|Man United|Torino|Milan",
+    "competitions_won_csv": "Serie A|FA Cup|Europa League"
+  },
+  {
+    "first_name": "Alessandro",
+    "last_name": "Bastoni",
+    "photo_url": "",
+    "country": "Italy",
+    "primary_position": "Defender",
+    "clubs_csv": "Inter|Parma|Atalanta",
+    "competitions_won_csv": "Euro Championship|Serie A|Coppa Italia"
+  },
+  {
+    "first_name": "Leonardo",
+    "last_name": "Bonucci",
+    "photo_url": "",
+    "country": "Italy",
+    "primary_position": "Defender",
+    "clubs_csv": "Fenerbahce|Union Berlin|Juventus|Milan|Bari|Inter",
+    "competitions_won_csv": "Euro Championship|Serie A|Coppa Italia"
+  },
+  {
+    "first_name": "Giorgio",
+    "last_name": "Chiellini",
+    "photo_url": "",
+    "country": "Italy",
+    "primary_position": "Defender",
+    "clubs_csv": "LAFC|Juventus|Fiorentina|Livorno",
+    "competitions_won_csv": "Euro Championship|Serie A|MLS Cup"
+  },
+  {
+    "first_name": "Adrien",
+    "last_name": "Rabiot",
+    "photo_url": "",
+    "country": "France",
+    "primary_position": "Midfielder",
+    "clubs_csv": "Marseille|Juventus|Paris Saint-Germain",
+    "competitions_won_csv": "Nations League|Serie A|Ligue 1"
+  },
+  {
+    "first_name": "Paul",
+    "last_name": "Pogba",
+    "photo_url": "",
+    "country": "France",
+    "primary_position": "Midfielder",
+    "clubs_csv": "Juventus|Manchester United",
+    "competitions_won_csv": "World Cup|Nations League|Serie A|Europa League"
+  },
+  {
+    "first_name": "N'Golo",
+    "last_name": "Kante",
+    "photo_url": "",
+    "country": "France",
+    "primary_position": "Midfielder",
+    "clubs_csv": "Al Ittihad|Chelsea|Leicester City|Caen",
+    "competitions_won_csv": "World Cup|Champions League|Premier League"
+  },
+  {
+    "first_name": "Sadio",
+    "last_name": "Mane",
+    "photo_url": "",
+    "country": "Senegal",
+    "primary_position": "Forward",
+    "clubs_csv": "Al Nassr|Bayern|Liverpool|Southampton|Salzburg",
+    "competitions_won_csv": "Champions League|Premier League|Africa Cup of Nations"
+  },
+  {
+    "first_name": "Heung-Min",
+    "last_name": "Son",
+    "photo_url": "",
+    "country": "Korea Republic",
+    "primary_position": "Forward",
+    "clubs_csv": "Tottenham|Leverkusen|Hamburg",
+    "competitions_won_csv": "Asian Games"
+  },
+  {
+    "first_name": "Kim",
+    "last_name": "Min-jae",
+    "photo_url": "",
+    "country": "Korea Republic",
+    "primary_position": "Defender",
+    "clubs_csv": "Bayern Munich|Napoli|Fenerbahce",
+    "competitions_won_csv": "Serie A|Asian Games"
+  },
+  {
+    "first_name": "Takefusa",
+    "last_name": "Kubo",
+    "photo_url": "",
+    "country": "Japan",
+    "primary_position": "Forward",
+    "clubs_csv": "Real Sociedad|Real Madrid|Mallorca|Getafe|Villarreal",
+    "competitions_won_csv": "Copa del Rey"
+  },
+  {
+    "first_name": "Kaoru",
+    "last_name": "Mitoma",
+    "photo_url": "",
+    "country": "Japan",
+    "primary_position": "Forward",
+    "clubs_csv": "Brighton|Union SG|Kawasaki Frontale",
+    "competitions_won_csv": "J1 League"
+  },
+  {
+    "first_name": "Riyad",
+    "last_name": "Mahrez",
+    "photo_url": "",
+    "country": "Algeria",
+    "primary_position": "Forward",
+    "clubs_csv": "Al Ahli|Manchester City|Leicester City|Le Havre",
+    "competitions_won_csv": "Champions League|Premier League|Africa Cup of Nations"
+  },
+  {
+    "first_name": "Hakim",
+    "last_name": "Ziyech",
+    "photo_url": "",
+    "country": "Morocco",
+    "primary_position": "Forward",
+    "clubs_csv": "Galatasaray|Chelsea|Ajax|Twente",
+    "competitions_won_csv": "Champions League|Eredivisie|Turkish League"
+  },
+  {
+    "first_name": "Yassine",
+    "last_name": "Bounou",
+    "photo_url": "",
+    "country": "Morocco",
+    "primary_position": "Goalkeeper",
+    "clubs_csv": "Al Hilal|Sevilla|Girona|Atletico Madrid",
+    "competitions_won_csv": "Europa League|Saudi Pro League"
+  },
+  {
+    "first_name": "Sofyan",
+    "last_name": "Amrabat",
+    "photo_url": "",
+    "country": "Morocco",
+    "primary_position": "Midfielder",
+    "clubs_csv": "Fenerbahce|Man United|Fiorentina|Verona|Feyenoord",
+    "competitions_won_csv": "FA Cup|Eredivisie"
+  },
+  {
+    "first_name": "Youssef",
+    "last_name": "En-Nesyri",
+    "photo_url": "",
+    "country": "Morocco",
+    "primary_position": "Forward",
+    "clubs_csv": "Fenerbahce|Sevilla|Leganes|Malaga",
+    "competitions_won_csv": "Europa League"
+  },
+  {
+    "first_name": "Thomas",
+    "last_name": "Muller",
+    "photo_url": "",
+    "country": "Germany",
+    "primary_position": "Forward",
+    "clubs_csv": "Bayern Munich",
+    "competitions_won_csv": "World Cup|Champions League|Bundesliga"
+  },
+  {
+    "first_name": "Joshua",
+    "last_name": "Kimmich",
+    "photo_url": "",
+    "country": "Germany",
+    "primary_position": "Midfielder",
+    "clubs_csv": "Bayern Munich|RB Leipzig",
+    "competitions_won_csv": "Champions League|Bundesliga|Confederations Cup"
+  },
+  {
+    "first_name": "Serge",
+    "last_name": "Gnabry",
+    "photo_url": "",
+    "country": "Germany",
+    "primary_position": "Forward",
+    "clubs_csv": "Bayern Munich|Hoffenheim|Werder Bremen|Arsenal",
+    "competitions_won_csv": "Champions League|Bundesliga|Club World Cup"
+  },
+  {
+    "first_name": "Niclas",
+    "last_name": "Fullkrug",
+    "photo_url": "",
+    "country": "Germany",
+    "primary_position": "Forward",
+    "clubs_csv": "West Ham|Dortmund|Bremen|Hannover",
+    "competitions_won_csv": "2. Bundesliga"
+  },
+  {
+    "first_name": "Cody",
+    "last_name": "Gakpo",
+    "photo_url": "",
+    "country": "Netherlands",
+    "primary_position": "Forward",
+    "clubs_csv": "Liverpool|PSV",
+    "competitions_won_csv": "Eredivisie|League Cup"
+  },
+  {
+    "first_name": "Ryan",
+    "last_name": "Gravenberch",
+    "photo_url": "",
+    "country": "Netherlands",
+    "primary_position": "Midfielder",
+    "clubs_csv": "Liverpool|Bayern|Ajax",
+    "competitions_won_csv": "Bundesliga|Eredivisie|League Cup"
+  },
+  {
+    "first_name": "Darwin",
+    "last_name": "Nunez",
+    "photo_url": "",
+    "country": "Uruguay",
+    "primary_position": "Forward",
+    "clubs_csv": "Liverpool|Benfica|Almeria",
+    "competitions_won_csv": "League Cup"
+  },
+  {
+    "first_name": "Diogo",
+    "last_name": "Jota",
+    "photo_url": "",
+    "country": "Portugal",
+    "primary_position": "Forward",
+    "clubs_csv": "Liverpool|Wolves|Atletico Madrid|Porto",
+    "competitions_won_csv": "Nations League|League Cup|FA Cup"
+  },
+  {
+    "first_name": "Joao",
+    "last_name": "Neves",
+    "photo_url": "",
+    "country": "Portugal",
+    "primary_position": "Midfielder",
+    "clubs_csv": "Paris Saint-Germain|Benfica",
+    "competitions_won_csv": "Primeira Liga"
+  },
+  {
+    "first_name": "Goncalo",
+    "last_name": "Ramos",
+    "photo_url": "",
+    "country": "Portugal",
+    "primary_position": "Forward",
+    "clubs_csv": "Paris Saint-Germain|Benfica",
+    "competitions_won_csv": "Ligue 1|Primeira Liga"
+  },
+  {
+    "first_name": "Vitinha",
+    "last_name": "Ferreira",
+    "photo_url": "",
+    "country": "Portugal",
+    "primary_position": "Midfielder",
+    "clubs_csv": "Paris Saint-Germain|Wolves|Porto",
+    "competitions_won_csv": "Ligue 1|Primeira Liga"
+  },
+  {
+    "first_name": "Rasmus",
+    "last_name": "Hojlund",
+    "photo_url": "",
+    "country": "Denmark",
+    "primary_position": "Forward",
+    "clubs_csv": "Manchester United|Atalanta|Sturm Graz|Copenhagen",
+    "competitions_won_csv": "FA Cup|Danish Superliga"
+  },
+  {
+    "first_name": "Alejandro",
+    "last_name": "Garnacho",
+    "photo_url": "",
+    "country": "Argentina",
+    "primary_position": "Forward",
+    "clubs_csv": "Manchester United",
+    "competitions_won_csv": "Copa America|FA Cup|League Cup"
   }
 ]

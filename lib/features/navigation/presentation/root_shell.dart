@@ -19,6 +19,9 @@ class RootShell extends ConsumerWidget {
     final navIndex = ref.watch(navigationIndexProvider);
     final gameState = ref.watch(gameControllerProvider);
     final result = gameState.lastResult;
+    const navToScreen = [0, 2, 3];
+    final selectedNavIndex =
+      navIndex == 2 ? 1 : navIndex == 3 ? 2 : 0;
 
     final screens = [
       HomeScreen(
@@ -30,6 +33,9 @@ class RootShell extends ConsumerWidget {
       GameScreen(
         onRoundEnd: () {
           ref.read(navigationIndexProvider.notifier).state = 2;
+        },
+        onExitToHome: () {
+          ref.read(navigationIndexProvider.notifier).state = 0;
         },
       ),
       ResultsScreen(
@@ -51,32 +57,33 @@ class RootShell extends ConsumerWidget {
 
     return Scaffold(
       body: SafeArea(child: screens[navIndex]),
-      bottomNavigationBar: Container(
-        margin: const EdgeInsets.fromLTRB(14, 0, 14, 14),
-        decoration: BoxDecoration(
-          color: const Color(0xCC091624),
-          borderRadius: BorderRadius.circular(28),
-        ),
-        child: BottomNavigationBar(
-          currentIndex: navIndex,
-          onTap: (index) {
-            ref.read(navigationIndexProvider.notifier).state = index;
-          },
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          type: BottomNavigationBarType.fixed,
-          selectedLabelStyle: const TextStyle(fontWeight: FontWeight.w700),
-          unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.w600),
-          selectedItemColor: AppColors.hotPink,
-          unselectedItemColor: AppColors.textMuted,
-          items: const [
-            BottomNavigationBarItem(icon: Icon(Icons.home_rounded), label: 'Ana Sayfa'),
-            BottomNavigationBarItem(icon: Icon(Icons.flash_on_rounded), label: 'Oyna'),
-            BottomNavigationBarItem(icon: Icon(Icons.emoji_events_outlined), label: 'Ligler'),
-            BottomNavigationBarItem(icon: Icon(Icons.person_rounded), label: 'Profil'),
-          ],
-        ),
-      ),
+      bottomNavigationBar: navIndex == 1
+          ? null
+          : Container(
+              margin: const EdgeInsets.fromLTRB(14, 0, 14, 14),
+              decoration: BoxDecoration(
+                color: const Color(0xCC091624),
+                borderRadius: BorderRadius.circular(28),
+              ),
+              child: BottomNavigationBar(
+                currentIndex: selectedNavIndex,
+                onTap: (index) {
+                  ref.read(navigationIndexProvider.notifier).state = navToScreen[index];
+                },
+                backgroundColor: Colors.transparent,
+                elevation: 0,
+                type: BottomNavigationBarType.fixed,
+                selectedLabelStyle: const TextStyle(fontWeight: FontWeight.w700),
+                unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.w600),
+                selectedItemColor: AppColors.hotPink,
+                unselectedItemColor: AppColors.textMuted,
+                items: const [
+                  BottomNavigationBarItem(icon: Icon(Icons.home_rounded), label: 'Ana Sayfa'),
+                  BottomNavigationBarItem(icon: Icon(Icons.emoji_events_outlined), label: 'Ligler'),
+                  BottomNavigationBarItem(icon: Icon(Icons.person_rounded), label: 'Profil'),
+                ],
+              ),
+            ),
     );
   }
 }

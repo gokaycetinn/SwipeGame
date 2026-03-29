@@ -9,9 +9,14 @@ import '../application/game_controller.dart';
 import '../application/game_state.dart';
 
 class GameScreen extends ConsumerWidget {
-  const GameScreen({super.key, required this.onRoundEnd});
+  const GameScreen({
+    super.key,
+    required this.onRoundEnd,
+    required this.onExitToHome,
+  });
 
   final VoidCallback onRoundEnd;
+  final VoidCallback onExitToHome;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -34,7 +39,9 @@ class GameScreen extends ConsumerWidget {
         padding: const EdgeInsets.fromLTRB(18, 10, 18, 14),
         child: Column(
           children: [
-            const _GameTopBar(),
+            _GameTopBar(
+              onPause: () => _openPauseMenu(context, ref, controller),
+            ),
             const SizedBox(height: 16),
             Row(
               children: [
@@ -97,6 +104,17 @@ class GameScreen extends ConsumerWidget {
                 .scale(begin: const Offset(1, 1), end: const Offset(1.08, 1.08), duration: 340.ms)
                 .then()
                 .scale(begin: const Offset(1.08, 1.08), end: const Offset(1, 1), duration: 340.ms),
+            if (state.isPaused) ...[
+              const SizedBox(height: 6),
+              Text(
+                'DURAKLATILDI',
+                style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                      color: AppColors.amber,
+                      letterSpacing: 1.8,
+                      fontWeight: FontWeight.w700,
+                    ),
+              ),
+            ],
             const SizedBox(height: 10),
             Expanded(
               child: currentCard == null
@@ -133,16 +151,60 @@ class GameScreen extends ConsumerWidget {
       ),
     );
   }
+
+  Future<void> _openPauseMenu(
+    BuildContext context,
+    WidgetRef ref,
+    GameController controller,
+  ) async {
+    controller.pauseRound();
+
+    await showDialog<void>(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) {
+        return AlertDialog(
+          backgroundColor: const Color(0xFF0F1A28),
+          title: const Text('Oyun Duraklatildi'),
+          content: const Text('Devam etmek veya ana menuye donmek icin secim yap.'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+                controller.resumeRound();
+              },
+              child: const Text('Devam Et'),
+            ),
+            FilledButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+                controller.exitToHome();
+                onExitToHome();
+              },
+              child: const Text('Ana Menu'),
+            ),
+          ],
+        );
+      },
+    );
+
+    final postDialogState = ref.read(gameControllerProvider);
+    if (postDialogState.isRunning && postDialogState.isPaused) {
+      controller.resumeRound();
+    }
+  }
 }
 
 class _GameTopBar extends StatelessWidget {
-  const _GameTopBar();
+  const _GameTopBar({required this.onPause});
+
+  final VoidCallback onPause;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        IconButton(onPressed: () {}, icon: const Icon(Icons.settings_rounded, size: 28)),
+        IconButton(onPressed: onPause, icon: const Icon(Icons.pause_rounded, size: 28)),
         Expanded(
           child: Text(
             'FUTSWIPE',
@@ -150,7 +212,7 @@ class _GameTopBar extends StatelessWidget {
             style: Theme.of(context).textTheme.headlineLarge?.copyWith(fontStyle: FontStyle.italic),
           ),
         ),
-        IconButton(onPressed: () {}, icon: const Icon(Icons.bar_chart_rounded, size: 28)),
+        const SizedBox(width: 48),
       ],
     );
   }
@@ -196,12 +258,28 @@ class _SwipeCard extends StatelessWidget {
             children: [
               Image.network(
                 imageUrl,
-                fit: BoxFit.cover,
+                fit: BoxFit.contain,
+                alignment: Alignment.center,
+                filterQuality: FilterQuality.high,
                 errorBuilder: (_, _, _) => Container(
                   color: const Color(0xFF16202D),
                   alignment: Alignment.center,
                   child: const Icon(Icons.sports_soccer_rounded, size: 84, color: Colors.white38),
                 ),
+                loadingBuilder: (context, child, progress) {
+                  if (progress == null) {
+                    return child;
+                  }
+                  return Container(
+                    color: const Color(0xFF16202D),
+                    alignment: Alignment.center,
+                    child: const SizedBox(
+                      width: 28,
+                      height: 28,
+                      child: CircularProgressIndicator(strokeWidth: 2.4),
+                    ),
+                  );
+                },
               ),
               Container(
                 decoration: const BoxDecoration(

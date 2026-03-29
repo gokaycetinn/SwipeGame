@@ -47,6 +47,7 @@ class GameController extends StateNotifier<GameState> {
       totalSwipes: 0,
       correctSwipes: 0,
       remainingMs: _roundDurationMs,
+      isPaused: false,
       isRunning: true,
       isFinished: false,
       startedAt: DateTime.now(),
@@ -71,7 +72,7 @@ class GameController extends StateNotifier<GameState> {
   }
 
   void submitAnswer({required bool matchesRule}) {
-    if (!state.isRunning || _inputLocked || state.currentCard == null) {
+    if (!state.isRunning || state.isPaused || _inputLocked || state.currentCard == null) {
       return;
     }
 
@@ -115,7 +116,7 @@ class GameController extends StateNotifier<GameState> {
   }
 
   void _tick() {
-    if (!state.isRunning) return;
+    if (!state.isRunning || state.isPaused) return;
 
     final remaining = _remainingMs();
     if (remaining <= 0) {
@@ -141,6 +142,7 @@ class GameController extends StateNotifier<GameState> {
         : (totalDuration / state.totalSwipes) / 1000.0;
 
     state = state.copyWith(
+      isPaused: false,
       isRunning: false,
       isFinished: true,
       remainingMs: 0,
@@ -151,6 +153,37 @@ class GameController extends StateNotifier<GameState> {
         correctSwipes: state.correctSwipes,
         avgSwipeSeconds: avgSwipeSeconds,
       ),
+    );
+  }
+
+  void pauseRound() {
+    if (!state.isRunning || state.isPaused) {
+      return;
+    }
+
+    _stopwatch.stop();
+    state = state.copyWith(isPaused: true, remainingMs: _remainingMs());
+  }
+
+  void resumeRound() {
+    if (!state.isRunning || !state.isPaused) {
+      return;
+    }
+
+    _stopwatch.start();
+    state = state.copyWith(isPaused: false);
+  }
+
+  void exitToHome() {
+    _ticker?.cancel();
+    _stopwatch.stop();
+
+    state = state.copyWith(
+      isPaused: false,
+      isRunning: false,
+      isFinished: false,
+      remainingMs: _roundDurationMs,
+      clearResult: true,
     );
   }
 

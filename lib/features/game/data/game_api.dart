@@ -21,7 +21,7 @@ class GameApi {
     final players = decoded
         .whereType<Map<String, dynamic>>()
         .map(_LocalPlayer.fromJson)
-        .where((p) => p.fullName.isNotEmpty && p.photoUrl.isNotEmpty)
+      .where((p) => p.fullName.isNotEmpty)
         .toList();
 
     if (players.isEmpty) {

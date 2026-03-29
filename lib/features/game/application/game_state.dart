@@ -32,6 +32,7 @@ class GameState {
     required this.totalSwipes,
     required this.correctSwipes,
     required this.remainingMs,
+    required this.isPaused,
     required this.isRunning,
     required this.isFinished,
     required this.lastResult,
@@ -48,6 +49,7 @@ class GameState {
         totalSwipes: 0,
         correctSwipes: 0,
         remainingMs: 60000,
+        isPaused: false,
         isRunning: false,
         isFinished: false,
         lastResult: null,
@@ -63,6 +65,7 @@ class GameState {
   final int totalSwipes;
   final int correctSwipes;
   final int remainingMs;
+  final bool isPaused;
   final bool isRunning;
   final bool isFinished;
   final RoundResult? lastResult;
@@ -83,6 +86,7 @@ class GameState {
     int? totalSwipes,
     int? correctSwipes,
     int? remainingMs,
+    bool? isPaused,
     bool? isRunning,
     bool? isFinished,
     RoundResult? lastResult,
@@ -99,6 +103,7 @@ class GameState {
       totalSwipes: totalSwipes ?? this.totalSwipes,
       correctSwipes: correctSwipes ?? this.correctSwipes,
       remainingMs: remainingMs ?? this.remainingMs,
+      isPaused: isPaused ?? this.isPaused,
       isRunning: isRunning ?? this.isRunning,
       isFinished: isFinished ?? this.isFinished,
       lastResult: clearResult ? null : (lastResult ?? this.lastResult),
