@@ -25,7 +25,10 @@ class GameState {
   const GameState({
     required this.deck,
     required this.currentRule,
+    required this.currentDifficulty,
     required this.currentIndex,
+    required this.activeModeId,
+    required this.activeModeLabel,
     required this.score,
     required this.streak,
     required this.bestStreak,
@@ -42,7 +45,10 @@ class GameState {
   factory GameState.initial() => const GameState(
         deck: [],
         currentRule: '',
+      currentDifficulty: 'easy',
         currentIndex: 0,
+      activeModeId: 'standard',
+      activeModeLabel: 'Standart',
         score: 0,
         streak: 0,
         bestStreak: 0,
@@ -58,7 +64,10 @@ class GameState {
 
   final List<QuizCard> deck;
   final String currentRule;
+  final String currentDifficulty;
   final int currentIndex;
+  final String activeModeId;
+  final String activeModeLabel;
   final int score;
   final int streak;
   final int bestStreak;
@@ -79,7 +88,10 @@ class GameState {
   GameState copyWith({
     List<QuizCard>? deck,
     String? currentRule,
+    String? currentDifficulty,
     int? currentIndex,
+    String? activeModeId,
+    String? activeModeLabel,
     int? score,
     int? streak,
     int? bestStreak,
@@ -96,7 +108,10 @@ class GameState {
     return GameState(
       deck: deck ?? this.deck,
       currentRule: currentRule ?? this.currentRule,
+      currentDifficulty: currentDifficulty ?? this.currentDifficulty,
       currentIndex: currentIndex ?? this.currentIndex,
+      activeModeId: activeModeId ?? this.activeModeId,
+      activeModeLabel: activeModeLabel ?? this.activeModeLabel,
       score: score ?? this.score,
       streak: streak ?? this.streak,
       bestStreak: bestStreak ?? this.bestStreak,

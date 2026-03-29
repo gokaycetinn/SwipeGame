@@ -1,0 +1,40 @@
+[
+  {
+    "id": "standard",
+    "name": "Standart",
+    "description": "Sure ilerledikce easy -> medium -> hard ve player/club/stadium karisik sorular.",
+    "round_duration_ms": 60000,
+    "penalty_ms": 1000,
+    "allowed_targets": ["player", "club", "stadium"],
+    "difficulty_strategy": "timeline",
+    "difficulty_timeline": [
+      {"from_progress": 0.0, "to_progress": 0.35, "difficulty": "easy"},
+      {"from_progress": 0.35, "to_progress": 0.7, "difficulty": "medium"},
+      {"from_progress": 0.7, "to_progress": 1.0, "difficulty": "hard"}
+    ]
+  },
+  {
+    "id": "mixed",
+    "name": "Karma",
+    "description": "Her kartta farkli hedef, sabit medium zorluk.",
+    "round_duration_ms": 70000,
+    "penalty_ms": 1000,
+    "allowed_targets": ["player", "club", "stadium"],
+    "difficulty_strategy": "fixed",
+    "fixed_difficulty": "medium"
+  },
+  {
+    "id": "challenge",
+    "name": "Meydan Okuma",
+    "description": "Kisa sure, yuksek ceza, hard ve extreme agirlikli.",
+    "round_duration_ms": 45000,
+    "penalty_ms": 1500,
+    "allowed_targets": ["player", "club", "stadium"],
+    "difficulty_strategy": "timeline",
+    "difficulty_timeline": [
+      {"from_progress": 0.0, "to_progress": 0.25, "difficulty": "medium"},
+      {"from_progress": 0.25, "to_progress": 0.7, "difficulty": "hard"},
+      {"from_progress": 0.7, "to_progress": 1.0, "difficulty": "extreme"}
+    ]
+  }
+]

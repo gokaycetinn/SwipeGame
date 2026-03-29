@@ -1,0 +1,579 @@
+[
+  {
+    "id": 1,
+    "name": "Manchester United",
+    "short_name": "Man United",
+    "country": "England",
+    "city": "Manchester",
+    "continent": "Europe",
+    "founded_year": 1878,
+    "logo_url": "",
+    "primary_colors": [
+      "Red",
+      "White",
+      "Black"
+    ],
+    "current_league": "Premier League",
+    "stadium_id": 1,
+    "competitions_won": [
+      "Premier League",
+      "Champions League",
+      "FA Cup"
+    ],
+    "is_active": true,
+    "facts": {
+      "is_english_club": true,
+      "plays_in_premier_league": true,
+      "won_champions_league": true,
+      "founded_before_1900": true,
+      "stadium_capacity_over_50000": true
+    }
+  },
+  {
+    "id": 2,
+    "name": "Real Madrid CF",
+    "short_name": "Real Madrid",
+    "country": "Spain",
+    "city": "Madrid",
+    "continent": "Europe",
+    "founded_year": 1902,
+    "logo_url": "",
+    "primary_colors": [
+      "White",
+      "Gold"
+    ],
+    "current_league": "La Liga",
+    "stadium_id": 2,
+    "competitions_won": [
+      "La Liga",
+      "Champions League",
+      "Copa del Rey"
+    ],
+    "is_active": true,
+    "facts": {
+      "is_english_club": false,
+      "plays_in_premier_league": false,
+      "won_champions_league": true,
+      "founded_before_1900": false,
+      "stadium_capacity_over_50000": true
+    }
+  },
+  {
+    "id": 3,
+    "name": "FC Barcelona",
+    "short_name": "Barcelona",
+    "country": "Spain",
+    "city": "Barcelona",
+    "continent": "Europe",
+    "founded_year": 1899,
+    "logo_url": "",
+    "primary_colors": [
+      "Blue",
+      "Garnet"
+    ],
+    "current_league": "La Liga",
+    "stadium_id": 3,
+    "competitions_won": [
+      "La Liga",
+      "Champions League",
+      "Copa del Rey"
+    ],
+    "is_active": true,
+    "facts": {
+      "is_english_club": false,
+      "plays_in_premier_league": false,
+      "won_champions_league": true,
+      "founded_before_1900": true,
+      "stadium_capacity_over_50000": true
+    }
+  },
+  {
+    "id": 4,
+    "name": "Manchester City FC",
+    "short_name": "Man City",
+    "country": "England",
+    "city": "Manchester",
+    "continent": "Europe",
+    "founded_year": 1880,
+    "logo_url": "",
+    "primary_colors": [
+      "Sky Blue",
+      "White"
+    ],
+    "current_league": "Premier League",
+    "stadium_id": 4,
+    "competitions_won": [
+      "Premier League",
+      "Champions League",
+      "FA Cup"
+    ],
+    "is_active": true,
+    "facts": {
+      "is_english_club": true,
+      "plays_in_premier_league": true,
+      "won_champions_league": true,
+      "founded_before_1900": true,
+      "stadium_capacity_over_50000": true
+    }
+  },
+  {
+    "id": 5,
+    "name": "Liverpool FC",
+    "short_name": "Liverpool",
+    "country": "England",
+    "city": "Liverpool",
+    "continent": "Europe",
+    "founded_year": 1892,
+    "logo_url": "",
+    "primary_colors": [
+      "Red",
+      "White"
+    ],
+    "current_league": "Premier League",
+    "stadium_id": 5,
+    "competitions_won": [
+      "Premier League",
+      "Champions League",
+      "FA Cup"
+    ],
+    "is_active": true,
+    "facts": {
+      "is_english_club": true,
+      "plays_in_premier_league": true,
+      "won_champions_league": true,
+      "founded_before_1900": true,
+      "stadium_capacity_over_50000": true
+    }
+  },
+  {
+    "id": 6,
+    "name": "FC Bayern München",
+    "short_name": "Bayern Munich",
+    "country": "Germany",
+    "city": "Munich",
+    "continent": "Europe",
+    "founded_year": 1900,
+    "logo_url": "",
+    "primary_colors": [
+      "Red",
+      "White"
+    ],
+    "current_league": "Bundesliga",
+    "stadium_id": 6,
+    "competitions_won": [
+      "Bundesliga",
+      "Champions League",
+      "DFB-Pokal"
+    ],
+    "is_active": true,
+    "facts": {
+      "is_english_club": false,
+      "plays_in_premier_league": false,
+      "won_champions_league": true,
+      "founded_before_1900": false,
+      "stadium_capacity_over_50000": true
+    }
+  },
+  {
+    "id": 7,
+    "name": "Paris Saint-Germain FC",
+    "short_name": "PSG",
+    "country": "France",
+    "city": "Paris",
+    "continent": "Europe",
+    "founded_year": 1970,
+    "logo_url": "",
+    "primary_colors": [
+      "Blue",
+      "Red",
+      "White"
+    ],
+    "current_league": "Ligue 1",
+    "stadium_id": 7,
+    "competitions_won": [
+      "Ligue 1",
+      "Coupe de France"
+    ],
+    "is_active": true,
+    "facts": {
+      "is_english_club": false,
+      "plays_in_premier_league": false,
+      "won_champions_league": false,
+      "founded_before_1900": false,
+      "stadium_capacity_over_50000": false
+    }
+  },
+  {
+    "id": 8,
+    "name": "Inter Milan",
+    "short_name": "Inter",
+    "country": "Italy",
+    "city": "Milan",
+    "continent": "Europe",
+    "founded_year": 1908,
+    "logo_url": "",
+    "primary_colors": [
+      "Black",
+      "Blue"
+    ],
+    "current_league": "Serie A",
+    "stadium_id": 8,
+    "competitions_won": [
+      "Serie A",
+      "Champions League",
+      "Coppa Italia"
+    ],
+    "is_active": true,
+    "facts": {
+      "is_english_club": false,
+      "plays_in_premier_league": false,
+      "won_champions_league": true,
+      "founded_before_1900": false,
+      "stadium_capacity_over_50000": true
+    }
+  },
+  {
+    "id": 9,
+    "name": "AC Milan",
+    "short_name": "Milan",
+    "country": "Italy",
+    "city": "Milan",
+    "continent": "Europe",
+    "founded_year": 1899,
+    "logo_url": "",
+    "primary_colors": [
+      "Red",
+      "Black"
+    ],
+    "current_league": "Serie A",
+    "stadium_id": 8,
+    "competitions_won": [
+      "Serie A",
+      "Champions League"
+    ],
+    "is_active": true,
+    "facts": {
+      "is_english_club": false,
+      "plays_in_premier_league": false,
+      "won_champions_league": true,
+      "founded_before_1900": true,
+      "stadium_capacity_over_50000": true
+    }
+  },
+  {
+    "id": 10,
+    "name": "Juventus FC",
+    "short_name": "Juventus",
+    "country": "Italy",
+    "city": "Turin",
+    "continent": "Europe",
+    "founded_year": 1897,
+    "logo_url": "",
+    "primary_colors": [
+      "Black",
+      "White"
+    ],
+    "current_league": "Serie A",
+    "stadium_id": 9,
+    "competitions_won": [
+      "Serie A",
+      "Coppa Italia",
+      "Champions League"
+    ],
+    "is_active": true,
+    "facts": {
+      "is_english_club": false,
+      "plays_in_premier_league": false,
+      "won_champions_league": true,
+      "founded_before_1900": true,
+      "stadium_capacity_over_50000": false
+    }
+  },
+  {
+    "id": 11,
+    "name": "Arsenal FC",
+    "short_name": "Arsenal",
+    "country": "England",
+    "city": "London",
+    "continent": "Europe",
+    "founded_year": 1886,
+    "logo_url": "",
+    "primary_colors": [
+      "Red",
+      "White"
+    ],
+    "current_league": "Premier League",
+    "stadium_id": 10,
+    "competitions_won": [
+      "Premier League",
+      "FA Cup"
+    ],
+    "is_active": true,
+    "facts": {
+      "is_english_club": true,
+      "plays_in_premier_league": true,
+      "won_champions_league": false,
+      "founded_before_1900": true,
+      "stadium_capacity_over_50000": true
+    }
+  },
+  {
+    "id": 12,
+    "name": "Borussia Dortmund",
+    "short_name": "Dortmund",
+    "country": "Germany",
+    "city": "Dortmund",
+    "continent": "Europe",
+    "founded_year": 1909,
+    "logo_url": "",
+    "primary_colors": [
+      "Yellow",
+      "Black"
+    ],
+    "current_league": "Bundesliga",
+    "stadium_id": 11,
+    "competitions_won": [
+      "Bundesliga",
+      "Champions League",
+      "DFB-Pokal"
+    ],
+    "is_active": true,
+    "facts": {
+      "is_english_club": false,
+      "plays_in_premier_league": false,
+      "won_champions_league": true,
+      "founded_before_1900": false,
+      "stadium_capacity_over_50000": true
+    }
+  },
+  {
+    "id": 13,
+    "name": "Bayer 04 Leverkusen",
+    "short_name": "Leverkusen",
+    "country": "Germany",
+    "city": "Leverkusen",
+    "continent": "Europe",
+    "founded_year": 1904,
+    "logo_url": "",
+    "primary_colors": [
+      "Red",
+      "Black"
+    ],
+    "current_league": "Bundesliga",
+    "stadium_id": 12,
+    "competitions_won": [
+      "Bundesliga",
+      "DFB-Pokal"
+    ],
+    "is_active": true,
+    "facts": {
+      "is_english_club": false,
+      "plays_in_premier_league": false,
+      "won_champions_league": false,
+      "founded_before_1900": false,
+      "stadium_capacity_over_50000": false
+    }
+  },
+  {
+    "id": 14,
+    "name": "Atletico Madrid",
+    "short_name": "Atletico",
+    "country": "Spain",
+    "city": "Madrid",
+    "continent": "Europe",
+    "founded_year": 1903,
+    "logo_url": "",
+    "primary_colors": [
+      "Red",
+      "White",
+      "Blue"
+    ],
+    "current_league": "La Liga",
+    "stadium_id": 13,
+    "competitions_won": [
+      "La Liga",
+      "Europa League",
+      "Copa del Rey"
+    ],
+    "is_active": true,
+    "facts": {
+      "is_english_club": false,
+      "plays_in_premier_league": false,
+      "won_champions_league": false,
+      "founded_before_1900": false,
+      "stadium_capacity_over_50000": true
+    }
+  },
+  {
+    "id": 15,
+    "name": "SSC Napoli",
+    "short_name": "Napoli",
+    "country": "Italy",
+    "city": "Naples",
+    "continent": "Europe",
+    "founded_year": 1926,
+    "logo_url": "",
+    "primary_colors": [
+      "Sky Blue",
+      "White"
+    ],
+    "current_league": "Serie A",
+    "stadium_id": 14,
+    "competitions_won": [
+      "Serie A",
+      "Coppa Italia",
+      "UEFA Cup"
+    ],
+    "is_active": true,
+    "facts": {
+      "is_english_club": false,
+      "plays_in_premier_league": false,
+      "won_champions_league": false,
+      "founded_before_1900": false,
+      "stadium_capacity_over_50000": true
+    }
+  },
+  {
+    "id": 16,
+    "name": "Chelsea FC",
+    "short_name": "Chelsea",
+    "country": "England",
+    "city": "London",
+    "continent": "Europe",
+    "founded_year": 1905,
+    "logo_url": "",
+    "primary_colors": [
+      "Blue",
+      "White"
+    ],
+    "current_league": "Premier League",
+    "stadium_id": 15,
+    "competitions_won": [
+      "Premier League",
+      "Champions League",
+      "FA Cup"
+    ],
+    "is_active": true,
+    "facts": {
+      "is_english_club": true,
+      "plays_in_premier_league": true,
+      "won_champions_league": true,
+      "founded_before_1900": false,
+      "stadium_capacity_over_50000": false
+    }
+  },
+  {
+    "id": 17,
+    "name": "Galatasaray SK",
+    "short_name": "Galatasaray",
+    "country": "Turkey",
+    "city": "Istanbul",
+    "continent": "Europe",
+    "founded_year": 1905,
+    "logo_url": "",
+    "primary_colors": [
+      "Yellow",
+      "Red"
+    ],
+    "current_league": "Süper Lig",
+    "stadium_id": 16,
+    "competitions_won": [
+      "Süper Lig",
+      "Turkish Cup",
+      "UEFA Cup"
+    ],
+    "is_active": true,
+    "facts": {
+      "is_english_club": false,
+      "plays_in_premier_league": false,
+      "won_champions_league": false,
+      "founded_before_1900": false,
+      "stadium_capacity_over_50000": true
+    }
+  },
+  {
+    "id": 18,
+    "name": "Fenerbahçe SK",
+    "short_name": "Fenerbahçe",
+    "country": "Turkey",
+    "city": "Istanbul",
+    "continent": "Europe",
+    "founded_year": 1907,
+    "logo_url": "",
+    "primary_colors": [
+      "Yellow",
+      "Navy Blue"
+    ],
+    "current_league": "Süper Lig",
+    "stadium_id": 17,
+    "competitions_won": [
+      "Süper Lig",
+      "Turkish Cup"
+    ],
+    "is_active": true,
+    "facts": {
+      "is_english_club": false,
+      "plays_in_premier_league": false,
+      "won_champions_league": false,
+      "founded_before_1900": false,
+      "stadium_capacity_over_50000": false
+    }
+  },
+  {
+    "id": 19,
+    "name": "SL Benfica",
+    "short_name": "Benfica",
+    "country": "Portugal",
+    "city": "Lisbon",
+    "continent": "Europe",
+    "founded_year": 1904,
+    "logo_url": "",
+    "primary_colors": [
+      "Red",
+      "White"
+    ],
+    "current_league": "Primeira Liga",
+    "stadium_id": 18,
+    "competitions_won": [
+      "Primeira Liga",
+      "Champions League"
+    ],
+    "is_active": true,
+    "facts": {
+      "is_english_club": false,
+      "plays_in_premier_league": false,
+      "won_champions_league": true,
+      "founded_before_1900": false,
+      "stadium_capacity_over_50000": true
+    }
+  },
+  {
+    "id": 20,
+    "name": "FC Porto",
+    "short_name": "Porto",
+    "country": "Portugal",
+    "city": "Porto",
+    "continent": "Europe",
+    "founded_year": 1893,
+    "logo_url": "",
+    "primary_colors": [
+      "Blue",
+      "White"
+    ],
+    "current_league": "Primeira Liga",
+    "stadium_id": 19,
+    "competitions_won": [
+      "Primeira Liga",
+      "Champions League",
+      "Europa League"
+    ],
+    "is_active": true,
+    "facts": {
+      "is_english_club": false,
+      "plays_in_premier_league": false,
+      "won_champions_league": true,
+      "founded_before_1900": true,
+      "stadium_capacity_over_50000": true
+    }
+  }
+]

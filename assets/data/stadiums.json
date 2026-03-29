@@ -1,0 +1,403 @@
+[
+  {
+    "id": 1,
+    "name": "Old Trafford",
+    "country": "England",
+    "city": "Manchester",
+    "continent": "Europe",
+    "capacity": 74879,
+    "photo_url": "",
+    "opened_year": 1910,
+    "home_club_ids": [
+      1
+    ],
+    "facts": {
+      "is_in_england": true,
+      "is_in_manchester": true,
+      "capacity_over_50000": true,
+      "capacity_over_70000": true,
+      "opened_before_1950": true
+    }
+  },
+  {
+    "id": 2,
+    "name": "Santiago Bernabéu",
+    "country": "Spain",
+    "city": "Madrid",
+    "continent": "Europe",
+    "capacity": 81044,
+    "photo_url": "",
+    "opened_year": 1947,
+    "home_club_ids": [
+      2
+    ],
+    "facts": {
+      "is_in_england": false,
+      "is_in_manchester": false,
+      "capacity_over_50000": true,
+      "capacity_over_70000": true,
+      "opened_before_1950": true
+    }
+  },
+  {
+    "id": 3,
+    "name": "Spotify Camp Nou",
+    "country": "Spain",
+    "city": "Barcelona",
+    "continent": "Europe",
+    "capacity": 99354,
+    "photo_url": "",
+    "opened_year": 1957,
+    "home_club_ids": [
+      3
+    ],
+    "facts": {
+      "is_in_england": false,
+      "is_in_manchester": false,
+      "capacity_over_50000": true,
+      "capacity_over_70000": true,
+      "opened_before_1950": false
+    }
+  },
+  {
+    "id": 4,
+    "name": "Etihad Stadium",
+    "country": "England",
+    "city": "Manchester",
+    "continent": "Europe",
+    "capacity": 53400,
+    "photo_url": "",
+    "opened_year": 2003,
+    "home_club_ids": [
+      4
+    ],
+    "facts": {
+      "is_in_england": true,
+      "is_in_manchester": true,
+      "capacity_over_50000": true,
+      "capacity_over_70000": false,
+      "opened_before_1950": false
+    }
+  },
+  {
+    "id": 5,
+    "name": "Anfield",
+    "country": "England",
+    "city": "Liverpool",
+    "continent": "Europe",
+    "capacity": 61276,
+    "photo_url": "",
+    "opened_year": 1884,
+    "home_club_ids": [
+      5
+    ],
+    "facts": {
+      "is_in_england": true,
+      "is_in_manchester": false,
+      "capacity_over_50000": true,
+      "capacity_over_70000": false,
+      "opened_before_1950": true
+    }
+  },
+  {
+    "id": 6,
+    "name": "Allianz Arena",
+    "country": "Germany",
+    "city": "Munich",
+    "continent": "Europe",
+    "capacity": 75000,
+    "photo_url": "",
+    "opened_year": 2005,
+    "home_club_ids": [
+      6
+    ],
+    "facts": {
+      "is_in_england": false,
+      "is_in_manchester": false,
+      "capacity_over_50000": true,
+      "capacity_over_70000": true,
+      "opened_before_1950": false
+    }
+  },
+  {
+    "id": 7,
+    "name": "Parc des Princes",
+    "country": "France",
+    "city": "Paris",
+    "continent": "Europe",
+    "capacity": 47929,
+    "photo_url": "",
+    "opened_year": 1972,
+    "home_club_ids": [
+      7
+    ],
+    "facts": {
+      "is_in_england": false,
+      "is_in_manchester": false,
+      "capacity_over_50000": false,
+      "capacity_over_70000": false,
+      "opened_before_1950": false
+    }
+  },
+  {
+    "id": 8,
+    "name": "San Siro",
+    "country": "Italy",
+    "city": "Milan",
+    "continent": "Europe",
+    "capacity": 80018,
+    "photo_url": "",
+    "opened_year": 1926,
+    "home_club_ids": [
+      8,
+      9
+    ],
+    "facts": {
+      "is_in_england": false,
+      "is_in_manchester": false,
+      "capacity_over_50000": true,
+      "capacity_over_70000": true,
+      "opened_before_1950": true
+    }
+  },
+  {
+    "id": 9,
+    "name": "Allianz Stadium",
+    "country": "Italy",
+    "city": "Turin",
+    "continent": "Europe",
+    "capacity": 41507,
+    "photo_url": "",
+    "opened_year": 2011,
+    "home_club_ids": [
+      10
+    ],
+    "facts": {
+      "is_in_england": false,
+      "is_in_manchester": false,
+      "capacity_over_50000": false,
+      "capacity_over_70000": false,
+      "opened_before_1950": false
+    }
+  },
+  {
+    "id": 10,
+    "name": "Emirates Stadium",
+    "country": "England",
+    "city": "London",
+    "continent": "Europe",
+    "capacity": 60704,
+    "photo_url": "",
+    "opened_year": 2006,
+    "home_club_ids": [
+      11
+    ],
+    "facts": {
+      "is_in_england": true,
+      "is_in_manchester": false,
+      "capacity_over_50000": true,
+      "capacity_over_70000": false,
+      "opened_before_1950": false
+    }
+  },
+  {
+    "id": 11,
+    "name": "Signal Iduna Park",
+    "country": "Germany",
+    "city": "Dortmund",
+    "continent": "Europe",
+    "capacity": 81365,
+    "photo_url": "",
+    "opened_year": 1974,
+    "home_club_ids": [
+      12
+    ],
+    "facts": {
+      "is_in_england": false,
+      "is_in_manchester": false,
+      "capacity_over_50000": true,
+      "capacity_over_70000": true,
+      "opened_before_1950": false
+    }
+  },
+  {
+    "id": 12,
+    "name": "BayArena",
+    "country": "Germany",
+    "city": "Leverkusen",
+    "continent": "Europe",
+    "capacity": 30210,
+    "photo_url": "",
+    "opened_year": 1958,
+    "home_club_ids": [
+      13
+    ],
+    "facts": {
+      "is_in_england": false,
+      "is_in_manchester": false,
+      "capacity_over_50000": false,
+      "capacity_over_70000": false,
+      "opened_before_1950": false
+    }
+  },
+  {
+    "id": 13,
+    "name": "Cívitas Metropolitano",
+    "country": "Spain",
+    "city": "Madrid",
+    "continent": "Europe",
+    "capacity": 70460,
+    "photo_url": "",
+    "opened_year": 2017,
+    "home_club_ids": [
+      14
+    ],
+    "facts": {
+      "is_in_england": false,
+      "is_in_manchester": false,
+      "capacity_over_50000": true,
+      "capacity_over_70000": true,
+      "opened_before_1950": false
+    }
+  },
+  {
+    "id": 14,
+    "name": "Stadio Maradona",
+    "country": "Italy",
+    "city": "Naples",
+    "continent": "Europe",
+    "capacity": 54726,
+    "photo_url": "",
+    "opened_year": 1959,
+    "home_club_ids": [
+      15
+    ],
+    "facts": {
+      "is_in_england": false,
+      "is_in_manchester": false,
+      "capacity_over_50000": true,
+      "capacity_over_70000": false,
+      "opened_before_1950": false
+    }
+  },
+  {
+    "id": 15,
+    "name": "Stamford Bridge",
+    "country": "England",
+    "city": "London",
+    "continent": "Europe",
+    "capacity": 40341,
+    "photo_url": "",
+    "opened_year": 1877,
+    "home_club_ids": [
+      16
+    ],
+    "facts": {
+      "is_in_england": true,
+      "is_in_manchester": false,
+      "capacity_over_50000": false,
+      "capacity_over_70000": false,
+      "opened_before_1950": true
+    }
+  },
+  {
+    "id": 16,
+    "name": "RAMS Park",
+    "country": "Turkey",
+    "city": "Istanbul",
+    "continent": "Europe",
+    "capacity": 52223,
+    "photo_url": "",
+    "opened_year": 2011,
+    "home_club_ids": [
+      17
+    ],
+    "facts": {
+      "is_in_england": false,
+      "is_in_manchester": false,
+      "capacity_over_50000": true,
+      "capacity_over_70000": false,
+      "opened_before_1950": false
+    }
+  },
+  {
+    "id": 17,
+    "name": "Ülker Stadium",
+    "country": "Turkey",
+    "city": "Istanbul",
+    "continent": "Europe",
+    "capacity": 47834,
+    "photo_url": "",
+    "opened_year": 1908,
+    "home_club_ids": [
+      18
+    ],
+    "facts": {
+      "is_in_england": false,
+      "is_in_manchester": false,
+      "capacity_over_50000": false,
+      "capacity_over_70000": false,
+      "opened_before_1950": true
+    }
+  },
+  {
+    "id": 18,
+    "name": "Estádio da Luz",
+    "country": "Portugal",
+    "city": "Lisbon",
+    "continent": "Europe",
+    "capacity": 64642,
+    "photo_url": "",
+    "opened_year": 2003,
+    "home_club_ids": [
+      19
+    ],
+    "facts": {
+      "is_in_england": false,
+      "is_in_manchester": false,
+      "capacity_over_50000": true,
+      "capacity_over_70000": false,
+      "opened_before_1950": false
+    }
+  },
+  {
+    "id": 19,
+    "name": "Estádio do Dragão",
+    "country": "Portugal",
+    "city": "Porto",
+    "continent": "Europe",
+    "capacity": 50033,
+    "photo_url": "",
+    "opened_year": 2003,
+    "home_club_ids": [
+      20
+    ],
+    "facts": {
+      "is_in_england": false,
+      "is_in_manchester": false,
+      "capacity_over_50000": true,
+      "capacity_over_70000": false,
+      "opened_before_1950": false
+    }
+  },
+  {
+    "id": 20,
+    "name": "Tottenham Hotspur Stadium",
+    "country": "England",
+    "city": "London",
+    "continent": "Europe",
+    "capacity": 62850,
+    "photo_url": "",
+    "opened_year": 2019,
+    "home_club_ids": [
+      24
+    ],
+    "facts": {
+      "is_in_england": true,
+      "is_in_manchester": false,
+      "capacity_over_50000": true,
+      "capacity_over_70000": false,
+      "opened_before_1950": false
+    }
+  }
+]

@@ -5,7 +5,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../data/game_api.dart';
-import '../data/sample_cards.dart';
 import '../domain/quiz_card.dart';
 import 'game_state.dart';
 
@@ -14,28 +13,43 @@ final gameControllerProvider =
   return GameController();
 });
 
+final gameModesProvider = FutureProvider<List<GameModeConfig>>((ref) async {
+  final api = GameApi();
+  return api.fetchModes();
+});
+
 class GameController extends StateNotifier<GameState> {
   GameController() : super(GameState.initial());
 
-  static const int _roundDurationMs = 60000;
-  static const int _roundCardCount = 14;
-
   Timer? _ticker;
   final Stopwatch _stopwatch = Stopwatch();
-  final GameApi _api = const GameApi();
+  final GameApi _api = GameApi();
   int _penaltyMs = 0;
   bool _inputLocked = false;
+  int _roundDurationMs = 60000;
+  int _penaltyPerWrongMs = 1000;
+  GameModeConfig? _activeMode;
 
-  Future<void> startNewRound() async {
+  Future<void> startNewRound({String modeId = 'standard'}) async {
     _ticker?.cancel();
     _stopwatch
       ..reset()
       ..start();
+
+    _activeMode = await _api.modeById(modeId);
+    _roundDurationMs = _activeMode!.roundDurationMs;
+    _penaltyPerWrongMs = _activeMode!.penaltyMs;
+
     _penaltyMs = 0;
     _inputLocked = false;
 
-    final deck = await _loadRoundDeck();
-    final firstRule = deck.isEmpty ? '' : deck.first.ruleText;
+    final openingDifficulty = _difficultyForRemaining(_roundDurationMs);
+    final openingCard = await _api.buildQuestion(
+      difficulty: openingDifficulty,
+      allowedTargets: _activeMode!.allowedTargets,
+    );
+    final deck = openingCard == null ? <QuizCard>[] : <QuizCard>[openingCard];
+    final firstRule = openingCard?.ruleText ?? '';
 
     state = state.copyWith(
       deck: deck,
@@ -47,6 +61,9 @@ class GameController extends StateNotifier<GameState> {
       totalSwipes: 0,
       correctSwipes: 0,
       remainingMs: _roundDurationMs,
+      activeModeId: _activeMode!.id,
+      activeModeLabel: _activeMode!.name,
+      currentDifficulty: openingDifficulty,
       isPaused: false,
       isRunning: true,
       isFinished: false,
@@ -57,21 +74,7 @@ class GameController extends StateNotifier<GameState> {
     _ticker = Timer.periodic(const Duration(milliseconds: 16), (_) => _tick());
   }
 
-  Future<List<QuizCard>> _loadRoundDeck() async {
-    try {
-      final cards = await _api.fetchQuestions(count: _roundCardCount, targetType: 'player');
-      if (cards.isNotEmpty) {
-        return cards;
-      }
-    } catch (_) {
-      // Fallback to built-in samples if json asset load fails.
-    }
-
-    final random = Random();
-    return [...sampleCards]..shuffle(random);
-  }
-
-  void submitAnswer({required bool matchesRule}) {
+  Future<void> submitAnswer({required bool matchesRule}) async {
     if (!state.isRunning || state.isPaused || _inputLocked || state.currentCard == null) {
       return;
     }
@@ -86,7 +89,7 @@ class GameController extends StateNotifier<GameState> {
     if (isCorrect) {
       _fireHaptic(isSuccess: true);
     } else {
-      _penaltyMs += 1000;
+      _penaltyMs += _penaltyPerWrongMs;
       _inputLocked = true;
       _fireHaptic(isSuccess: false);
       Future<void>.delayed(const Duration(milliseconds: 450), () {
@@ -94,12 +97,22 @@ class GameController extends StateNotifier<GameState> {
       });
     }
 
+    final remaining = _remainingMs();
     final nextIndex = state.currentIndex + 1;
-    final nextRule = state.deck.isEmpty
-        ? ''
-        : state.deck[nextIndex % state.deck.length].ruleText;
+    final nextDifficulty = _difficultyForRemaining(remaining);
+    final nextCard = await _api.buildQuestion(
+      difficulty: nextDifficulty,
+      allowedTargets: _activeMode?.allowedTargets ?? const ['player'],
+    );
+
+    final nextDeck = List.of(state.deck);
+    if (nextCard != null) {
+      nextDeck.add(nextCard);
+    }
+    final nextRule = nextCard?.ruleText ?? state.currentRule;
 
     state = state.copyWith(
+      deck: nextDeck,
       score: state.score + (isCorrect ? 1 : 0),
       streak: streak,
       bestStreak: bestStreak,
@@ -107,10 +120,11 @@ class GameController extends StateNotifier<GameState> {
       correctSwipes: state.correctSwipes + (isCorrect ? 1 : 0),
       currentIndex: nextIndex,
       currentRule: nextRule,
-      remainingMs: _remainingMs(),
+      currentDifficulty: nextDifficulty,
+      remainingMs: remaining,
     );
 
-    if (_remainingMs() <= 0) {
+    if (remaining <= 0) {
       _finishRound();
     }
   }
@@ -130,6 +144,28 @@ class GameController extends StateNotifier<GameState> {
   int _remainingMs() {
     final elapsed = _stopwatch.elapsedMilliseconds + _penaltyMs;
     return max(0, _roundDurationMs - elapsed);
+  }
+
+  String _difficultyForRemaining(int remainingMs) {
+    final mode = _activeMode;
+    if (mode == null) {
+      return 'easy';
+    }
+
+    if (mode.strategy == 'fixed') {
+      return mode.fixedDifficulty;
+    }
+
+    final elapsedRatio = 1 - (remainingMs / _roundDurationMs).clamp(0.0, 1.0);
+    for (final step in mode.timeline) {
+      if (elapsedRatio >= step.fromProgress && elapsedRatio < step.toProgress) {
+        return step.difficulty;
+      }
+    }
+    if (mode.timeline.isNotEmpty) {
+      return mode.timeline.last.difficulty;
+    }
+    return 'easy';
   }
 
   void _finishRound() {
@@ -179,6 +215,10 @@ class GameController extends StateNotifier<GameState> {
     _stopwatch.stop();
 
     state = state.copyWith(
+      deck: const <QuizCard>[],
+      currentIndex: 0,
+      currentRule: '',
+      currentDifficulty: 'easy',
       isPaused: false,
       isRunning: false,
       isFinished: false,

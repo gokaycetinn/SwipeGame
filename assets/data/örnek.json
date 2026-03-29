@@ -1,0 +1,93 @@
+{
+	"player": {
+		"id": 1,
+		"first_name": "Erling",
+		"last_name": "Haaland",
+		"full_name": "Erling Haaland",
+		"photo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Erling_Haaland_2023_%28fullcropped%29.jpg/640px-Erling_Haaland_2023_%28fullcropped%29.jpg",
+		"country": "Norway",
+		"continent": "Europe",
+		"birth_date": "2000-07-21",
+		"age": 25,
+		"primary_position": "Forward",
+		"secondary_positions": [
+			"Striker"
+		],
+		"preferred_foot": "Left",
+		"height_cm": 194,
+		"weight_kg": 88,
+		"current_club_id": 4,
+		"current_league": "Premier League",
+		"clubs_history_ids": [
+			4,
+			12
+		],
+		"competitions_won": [
+			"Champions League",
+			"Premier League"
+		],
+		"national_team": "Norway",
+		"is_active": true,
+		"facts": {
+			"is_forward": true,
+			"is_goalkeeper": false,
+			"played_in_premier_league": true,
+			"played_in_la_liga": false,
+			"won_champions_league": true,
+			"won_world_cup": false,
+			"won_copa_america": false,
+			"age_over_30": false,
+			"south_american": false
+		}
+	},
+	"club": {
+		"id": 1,
+		"name": "Manchester United",
+		"short_name": "Man United",
+		"country": "England",
+		"city": "Manchester",
+		"continent": "Europe",
+		"founded_year": 1878,
+		"logo_url": "",
+		"primary_colors": [
+			"Red",
+			"White",
+			"Black"
+		],
+		"current_league": "Premier League",
+		"stadium_id": 1,
+		"competitions_won": [
+			"Premier League",
+			"Champions League",
+			"FA Cup"
+		],
+		"is_active": true,
+		"facts": {
+			"is_english_club": true,
+			"plays_in_premier_league": true,
+			"won_champions_league": true,
+			"founded_before_1900": true,
+			"stadium_capacity_over_50000": true
+		}
+	},
+	"stadium": {
+		"id": 1,
+		"name": "Old Trafford",
+		"country": "England",
+		"city": "Manchester",
+		"continent": "Europe",
+		"capacity": 74879,
+		"photo_url": "",
+		"opened_year": 1910,
+		"home_club_ids": [
+			1
+		],
+		"facts": {
+			"is_in_england": true,
+			"is_in_manchester": true,
+			"capacity_over_50000": true,
+			"capacity_over_70000": true,
+			"opened_before_1950": true
+		}
+	}
+}

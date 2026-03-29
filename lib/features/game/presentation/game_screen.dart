@@ -30,6 +30,13 @@ class GameScreen extends ConsumerWidget {
     final state = ref.watch(gameControllerProvider);
     final controller = ref.read(gameControllerProvider.notifier);
     final currentCard = state.currentCard;
+    final entityLabel = currentCard == null
+      ? 'PLAYER'
+      : currentCard.id.startsWith('club_')
+        ? 'CLUB'
+        : currentCard.id.startsWith('stadium_')
+          ? 'STADIUM'
+          : 'PLAYER';
 
     final timerSeconds = state.remainingMs / 1000.0;
     final dangerMode = timerSeconds <= 3;
@@ -46,54 +53,30 @@ class GameScreen extends ConsumerWidget {
             Row(
               children: [
                 Expanded(
-                  child: GlassCard(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'MEVCUT KURAL',
-                          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                                color: AppColors.textMuted,
-                                letterSpacing: 1.7,
-                                fontWeight: FontWeight.w700,
-                              ),
+                  child: Text(
+                    'MOD: ${state.activeModeLabel.toUpperCase()} • ZORLUK: ${state.currentDifficulty.toUpperCase()}',
+                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                          color: const Color(0xFFC7D6E8),
+                          fontSize: 12,
+                          letterSpacing: 1.0,
+                          fontWeight: FontWeight.w700,
                         ),
-                        const SizedBox(height: 8),
-                        Text(
-                          state.currentRule,
-                          style: Theme.of(context).textTheme.titleLarge,
-                        ),
-                      ],
-                    ),
                   ),
                 ),
-                const SizedBox(width: 12),
-                SizedBox(
-                  width: 110,
-                  child: GlassCard(
-                    borderColor: AppColors.neonGreen.withValues(alpha: 0.65),
-                    child: Column(
-                      children: [
-                        Text(
-                          'SERI',
-                          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                                color: AppColors.textMuted,
-                                fontSize: 14,
-                                letterSpacing: 1.3,
-                              ),
+                GlassCard(
+                  borderColor: AppColors.neonGreen.withValues(alpha: 0.55),
+                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                  child: Text(
+                    'SERI ${state.streak}',
+                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                          fontWeight: FontWeight.w800,
+                          letterSpacing: 1.1,
                         ),
-                        const SizedBox(height: 6),
-                        Text(
-                          '${state.streak}',
-                          style: Theme.of(context).textTheme.displayMedium,
-                        ),
-                      ],
-                    ),
                   ),
                 ),
               ],
             ),
-            const SizedBox(height: 14),
+            const SizedBox(height: 10),
             Text(
               timerSeconds.toStringAsFixed(2),
               style: Theme.of(context).textTheme.displayLarge?.copyWith(
@@ -116,6 +99,8 @@ class GameScreen extends ConsumerWidget {
               ),
             ],
             const SizedBox(height: 10),
+            _RuleBar(text: state.currentRule),
+            const SizedBox(height: 10),
             Expanded(
               child: currentCard == null
                   ? const SizedBox.shrink()
@@ -123,6 +108,7 @@ class GameScreen extends ConsumerWidget {
                       key: ValueKey('${currentCard.id}-${state.totalSwipes}'),
                       name: currentCard.name,
                       subtitle: currentCard.subtitle,
+                      entityLabel: entityLabel,
                       imageUrl: currentCard.imageUrl,
                       onSwipeLeft: () => controller.submitAnswer(matchesRule: false),
                       onSwipeRight: () => controller.submitAnswer(matchesRule: true),
@@ -223,6 +209,7 @@ class _SwipeCard extends StatelessWidget {
     super.key,
     required this.name,
     required this.subtitle,
+    required this.entityLabel,
     required this.imageUrl,
     required this.onSwipeLeft,
     required this.onSwipeRight,
@@ -230,6 +217,7 @@ class _SwipeCard extends StatelessWidget {
 
   final String name;
   final String subtitle;
+  final String entityLabel;
   final String imageUrl;
   final VoidCallback onSwipeLeft;
   final VoidCallback onSwipeRight;
@@ -258,11 +246,17 @@ class _SwipeCard extends StatelessWidget {
             children: [
               Image.network(
                 imageUrl,
-                fit: BoxFit.contain,
-                alignment: Alignment.center,
+                fit: BoxFit.cover,
+                alignment: Alignment.topCenter,
                 filterQuality: FilterQuality.high,
                 errorBuilder: (_, _, _) => Container(
-                  color: const Color(0xFF16202D),
+                  decoration: const BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [Color(0xFF1D2B3F), Color(0xFF0E1625)],
+                    ),
+                  ),
                   alignment: Alignment.center,
                   child: const Icon(Icons.sports_soccer_rounded, size: 84, color: Colors.white38),
                 ),
@@ -282,11 +276,15 @@ class _SwipeCard extends StatelessWidget {
                 },
               ),
               Container(
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   gradient: LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
-                    colors: [Colors.transparent, Color(0xEE05090E)],
+                    colors: [
+                      Colors.black.withValues(alpha: 0.6),
+                      Colors.transparent,
+                      const Color(0xEE05090E),
+                    ],
                   ),
                 ),
               ),
@@ -297,22 +295,89 @@ class _SwipeCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(999),
+                        color: Colors.black.withValues(alpha: 0.4),
+                        border: Border.all(color: Colors.white24),
+                      ),
+                      child: Text(
+                        entityLabel,
+                        style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                              color: const Color(0xFFEED1DA),
+                              letterSpacing: 1.2,
+                              fontWeight: FontWeight.w700,
+                              fontSize: 12,
+                            ),
+                      ),
+                    ),
+                    const SizedBox(height: 10),
                     Text(
                       subtitle,
                       style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                             color: const Color(0xFFF7B9C7),
                             fontWeight: FontWeight.w800,
                             letterSpacing: 1.2,
+                            shadows: const [Shadow(color: Colors.black54, blurRadius: 8)],
                           ),
                     ),
                     const SizedBox(height: 8),
-                    Text(name, style: Theme.of(context).textTheme.titleLarge?.copyWith(fontSize: 40)),
+                    Text(
+                      name,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                            fontSize: 38,
+                            shadows: const [Shadow(color: Colors.black87, blurRadius: 12)],
+                          ),
+                    ),
                   ],
                 ),
               ),
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class _RuleBar extends StatelessWidget {
+  const _RuleBar({required this.text});
+
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return GlassCard(
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+      borderColor: AppColors.hotPink.withValues(alpha: 0.38),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'KURAL',
+            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                  color: AppColors.textMuted,
+                  fontWeight: FontWeight.w700,
+                  letterSpacing: 1.2,
+                  fontSize: 12,
+                ),
+          ),
+          const SizedBox(width: 10),
+          Expanded(
+            child: Text(
+              text,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                    fontSize: 28,
+                    height: 1.05,
+                  ),
+            ),
+          ),
+        ],
       ),
     );
   }

@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../game/application/game_controller.dart';
 import '../../game/application/game_state.dart';
+import '../../game/data/game_api.dart';
 import '../../game/presentation/game_screen.dart';
 import '../../home/presentation/home_screen.dart';
 import '../../profile/presentation/profile_screen.dart';
@@ -18,6 +19,8 @@ class RootShell extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final navIndex = ref.watch(navigationIndexProvider);
     final gameState = ref.watch(gameControllerProvider);
+    final modesAsync = ref.watch(gameModesProvider);
+    final modeOptions = modesAsync.valueOrNull ?? const <GameModeConfig>[];
     final result = gameState.lastResult;
     const navToScreen = [0, 2, 3];
     final selectedNavIndex =
@@ -25,8 +28,9 @@ class RootShell extends ConsumerWidget {
 
     final screens = [
       HomeScreen(
-        onStart: () {
-          ref.read(gameControllerProvider.notifier).startNewRound();
+        modes: modeOptions,
+        onStart: (modeId) {
+          ref.read(gameControllerProvider.notifier).startNewRound(modeId: modeId);
           ref.read(navigationIndexProvider.notifier).state = 1;
         },
       ),
@@ -48,7 +52,9 @@ class RootShell extends ConsumerWidget {
               avgSwipeSeconds: 0,
             ),
         onRetry: () {
-          ref.read(gameControllerProvider.notifier).startNewRound();
+          ref
+              .read(gameControllerProvider.notifier)
+              .startNewRound(modeId: gameState.activeModeId);
           ref.read(navigationIndexProvider.notifier).state = 1;
         },
       ),
@@ -56,7 +62,7 @@ class RootShell extends ConsumerWidget {
     ];
 
     return Scaffold(
-      body: SafeArea(child: screens[navIndex]),
+      body: screens[navIndex],
       bottomNavigationBar: navIndex == 1
           ? null
           : Container(

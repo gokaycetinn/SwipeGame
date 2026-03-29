@@ -42,7 +42,7 @@ class FutBackground extends StatelessWidget {
             ),
           ),
           Positioned.fill(child: CustomPaint(painter: _DotNoisePainter())),
-          child,
+          SafeArea(child: child),
         ],
       ),
     );
