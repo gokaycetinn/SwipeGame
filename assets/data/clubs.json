@@ -7,7 +7,7 @@
     "city": "Manchester",
     "continent": "Europe",
     "founded_year": 1878,
-    "logo_url": "",
+    "logo_url": "assets/logos/manchester-united.svg",
     "primary_colors": [
       "Red",
       "White",
@@ -37,7 +37,7 @@
     "city": "Madrid",
     "continent": "Europe",
     "founded_year": 1902,
-    "logo_url": "",
+    "logo_url": "assets/logos/real-madrid.svg",
     "primary_colors": [
       "White",
       "Gold"
@@ -66,7 +66,7 @@
     "city": "Barcelona",
     "continent": "Europe",
     "founded_year": 1899,
-    "logo_url": "",
+    "logo_url": "assets/logos/fc-barcelona.svg",
     "primary_colors": [
       "Blue",
       "Garnet"
@@ -95,7 +95,7 @@
     "city": "Manchester",
     "continent": "Europe",
     "founded_year": 1880,
-    "logo_url": "",
+    "logo_url": "assets/logos/manchester-city.svg",
     "primary_colors": [
       "Sky Blue",
       "White"
@@ -124,7 +124,7 @@
     "city": "Liverpool",
     "continent": "Europe",
     "founded_year": 1892,
-    "logo_url": "",
+    "logo_url": "assets/logos/liverpool-fc.svg",
     "primary_colors": [
       "Red",
       "White"
@@ -153,7 +153,7 @@
     "city": "Munich",
     "continent": "Europe",
     "founded_year": 1900,
-    "logo_url": "",
+    "logo_url": "assets/logos/bayern-munchen.png",
     "primary_colors": [
       "Red",
       "White"
@@ -182,7 +182,7 @@
     "city": "Paris",
     "continent": "Europe",
     "founded_year": 1970,
-    "logo_url": "",
+    "logo_url": "assets/logos/psg.svg",
     "primary_colors": [
       "Blue",
       "Red",
@@ -211,7 +211,7 @@
     "city": "Milan",
     "continent": "Europe",
     "founded_year": 1908,
-    "logo_url": "",
+    "logo_url": "assets/logos/inter-milan.svg",
     "primary_colors": [
       "Black",
       "Blue"
@@ -240,7 +240,7 @@
     "city": "Milan",
     "continent": "Europe",
     "founded_year": 1899,
-    "logo_url": "",
+    "logo_url": "assets/logos/ac-milan.svg",
     "primary_colors": [
       "Red",
       "Black"
@@ -268,7 +268,7 @@
     "city": "Turin",
     "continent": "Europe",
     "founded_year": 1897,
-    "logo_url": "",
+    "logo_url": "assets/logos/juventus.svg",
     "primary_colors": [
       "Black",
       "White"
@@ -297,7 +297,7 @@
     "city": "London",
     "continent": "Europe",
     "founded_year": 1886,
-    "logo_url": "",
+    "logo_url": "assets/logos/arsenal.svg",
     "primary_colors": [
       "Red",
       "White"
@@ -325,7 +325,7 @@
     "city": "Dortmund",
     "continent": "Europe",
     "founded_year": 1909,
-    "logo_url": "",
+    "logo_url": "assets/logos/borussia-dortmund.svg",
     "primary_colors": [
       "Yellow",
       "Black"
@@ -354,7 +354,7 @@
     "city": "Leverkusen",
     "continent": "Europe",
     "founded_year": 1904,
-    "logo_url": "",
+    "logo_url": "assets/logos/bayer-leverkusen.png",
     "primary_colors": [
       "Red",
       "Black"
@@ -412,7 +412,7 @@
     "city": "Naples",
     "continent": "Europe",
     "founded_year": 1926,
-    "logo_url": "",
+    "logo_url": "assets/logos/napoli.svg",
     "primary_colors": [
       "Sky Blue",
       "White"
@@ -441,7 +441,7 @@
     "city": "London",
     "continent": "Europe",
     "founded_year": 1905,
-    "logo_url": "",
+    "logo_url": "assets/logos/chelsea-fc.svg",
     "primary_colors": [
       "Blue",
       "White"
@@ -470,7 +470,7 @@
     "city": "Istanbul",
     "continent": "Europe",
     "founded_year": 1905,
-    "logo_url": "",
+    "logo_url": "assets/logos/galatasaray.png",
     "primary_colors": [
       "Yellow",
       "Red"
@@ -527,7 +527,7 @@
     "city": "Lisbon",
     "continent": "Europe",
     "founded_year": 1904,
-    "logo_url": "",
+    "logo_url": "assets/logos/benfica.svg",
     "primary_colors": [
       "Red",
       "White"
